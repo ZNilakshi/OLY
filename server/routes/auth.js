@@ -17,18 +17,23 @@ router.get(
 );
 
 // Get Logged-in User
+// Get Logged-in User
 router.get("/user", async (req, res) => {
   if (!req.user) return res.json(null);
 
   const user = await User.findById(req.user._id);
   res.json({
-    id: user._id, // Include the `id` field
+    id: user._id,
     name: user.name,
     email: user.email,
     role: user.role,
-    // Include other fields as needed
+    about: user.about,  // Add this
+    phone: user.phone,  // Add this
+    location: user.location,  // Add this
+    profilePicture: user.profilePicture,  // Add this
   });
 });
+
 
 // Logout Route
 router.get("/logout", (req, res) => {

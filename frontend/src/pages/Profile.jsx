@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import MyList from "../components/MyList";
+import { useEffect } from "react";
+import { fetchUser } from "../redux/authSlice";
 
 const ProfilePage = () => {
   const user = useSelector((state) => state.auth.user);
   console.log("User object:", user);
   const dispatch = useDispatch();
+ 
+  useEffect(() => {
+    dispatch(fetchUser()); // Fetch user data when component loads
+  }, [dispatch]);
 
   // Add this line
   const [isEditing, setIsEditing] = useState(false);
@@ -196,3 +202,4 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
