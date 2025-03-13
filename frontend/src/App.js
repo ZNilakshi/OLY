@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Profile from "./pages/Profile";
+import ListingDetails from "./pages/ListingDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/listing/:id" element={<ListingDetails />} />
+   
       </Routes>
       <Footer />
     </Router>
