@@ -39,6 +39,7 @@ const ListingCard = ({ listing, index }) => {
         <h3 className="text-lg font-semibold">{listing.title}</h3>
         <p className="text-sm text-gray-500">Size: {listing.size}</p>
         <p className="text-sm text-gray-500">Condition: {listing.condition}</p>
+        <p className="text-sm text-gray-500">{listing.rentOrSell}</p>
         <p className="text-green-600 font-bold mt-1">
           {listing.priceType === "Free"
             ? "Free"

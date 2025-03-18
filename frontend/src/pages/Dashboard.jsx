@@ -1,40 +1,52 @@
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/authSlice";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { useEffect } from "react";
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.auth.user);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user) {
-      navigate("/"); // Redirect to login if user is not logged in
-    }
-  }, [user, navigate]);
+    const fetchUser = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/auth/user", {
+          credentials: "include",
+        });
+        const data = await response.json();
+        if (data.user) {
+          setUser(data.user);
+        } else {
+          navigate("/signup"); // Redirect if no user is found
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const handleLogout = async () => {
-    await axios.get("http://localhost:5000/auth/logout", { withCredentials: true });
-    dispatch(logout());
-    navigate("/"); // Redirect to login page after logout
-  };
+    fetchUser();
+  }, [navigate]);
+
+  if (loading) {
+    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+  }
 
   return (
-    <div className="p-10">
-      {user ? (
-        <div>
-          <h1 className="text-4xl font-bold">Welcome, {user.name}! 🎉</h1>
-          <img src={user.profilePicture} alt="User" className="rounded-full w-16 h-16 mt-4" />
-          <p className="text-lg mt-2">Role: {user.role}</p>
-          <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded-lg mt-4">
-            Logout
-          </button>
-        </div>
-      ) : (
-        <p className="text-lg">Loading...</p>
-      )}
+    <div className="min-h-screen p-6">
+     <h1 className="text-3xl font-bold mb-4">
+  Welcome, {user?.name?.givenName} {user?.name?.familyName}!
+</h1>
+ <p>Email: {user?.email}</p>
+      <button
+        onClick={() => {
+          fetch("http://localhost:5000/api/auth/logout", { credentials: "include" })
+            .then(() => navigate("/signup"));
+        }}
+        className="mt-4 px-4 py-2 bg-red-500 text-white rounded"
+      >
+        Logout
+      </button>
     </div>
   );
 };
