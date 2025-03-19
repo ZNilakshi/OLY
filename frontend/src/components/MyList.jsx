@@ -1,7 +1,8 @@
-// components/MyList.js
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ListingCard from "./ListingCard";
 
 const MyList = ({ user }) => {
+  const [listings, setListings] = useState([]);
   const [newListing, setNewListing] = useState({
     category: "",
     title: "",
@@ -15,6 +16,35 @@ const MyList = ({ user }) => {
   });
 
   const [isAdding, setIsAdding] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!user?._id) {
+      setLoading(false);
+      return;
+    }
+
+    const fetchListings = async () => {
+      if (!user?._id) return console.error("User ID is missing");
+
+      try {
+        console.log("Fetching listings for user ID:", user._id);
+        const response = await fetch(`http://localhost:5000/api/listings/user/${user._id}`);
+
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+        const data = await response.json();
+        console.log("Fetched Listings:", data);
+        setListings(data);
+      } catch (error) {
+        console.error("Error fetching listings:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchListings();
+  }, [user?._id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,7 +60,7 @@ const MyList = ({ user }) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("userId", user._id); // Use the user prop
+    formData.append("userId", user._id);
     formData.append("category", newListing.category);
     formData.append("title", newListing.title);
     formData.append("description", newListing.description);
@@ -51,6 +81,7 @@ const MyList = ({ user }) => {
 
       const data = await response.json();
       console.log("Listing created:", data);
+      setListings([...listings, data]);
       setIsAdding(false);
       setNewListing({
         category: "",
@@ -62,22 +93,29 @@ const MyList = ({ user }) => {
         priceType: "Fixed",
         price: "",
         photos: [],
-      }); // Reset form
+      });
     } catch (error) {
       console.error("Error submitting listing:", error);
     }
   };
 
+  if (loading) {
+    return <div className="flex justify-center items-center h-screen text-lg">Loading...</div>;
+  }
+
+  if (!user) {
+    return <div className="text-center text-lg">Please log in to view your listings.</div>;
+  }
+
   return (
-    <div>
+    <div className="p-4 md:p-8">
       {isAdding ? (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Form fields */}
+        <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto">
           <select
             name="category"
             value={newListing.category}
             onChange={handleChange}
-            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border rounded-lg"
             required
           >
             <option value="">Select Category</option>
@@ -94,7 +132,7 @@ const MyList = ({ user }) => {
             placeholder="Title"
             value={newListing.title}
             onChange={handleChange}
-            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border rounded-lg"
             required
           />
 
@@ -103,7 +141,7 @@ const MyList = ({ user }) => {
             placeholder="Description"
             value={newListing.description}
             onChange={handleChange}
-            className="w-full p-3 border-2 border-gray-300 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border rounded-lg resize-none"
             required
           />
 
@@ -113,7 +151,7 @@ const MyList = ({ user }) => {
             placeholder="Size (e.g., Medium, 40, XL)"
             value={newListing.size}
             onChange={handleChange}
-            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border rounded-lg"
             required
           />
 
@@ -121,7 +159,7 @@ const MyList = ({ user }) => {
             name="condition"
             value={newListing.condition}
             onChange={handleChange}
-            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border rounded-lg"
             required
           >
             <option value="">Select Condition</option>
@@ -133,19 +171,19 @@ const MyList = ({ user }) => {
             name="rentOrSell"
             value={newListing.rentOrSell}
             onChange={handleChange}
-            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border rounded-lg"
             required
           >
             <option value="Sell">Sell</option>
             <option value="Rent">Rent</option>
           </select>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <select
               name="priceType"
               value={newListing.priceType}
               onChange={handleChange}
-              className="w-1/2 p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full sm:w-1/2 p-2 border rounded-lg"
               required
             >
               <option value="Fixed">Fixed Price</option>
@@ -160,7 +198,7 @@ const MyList = ({ user }) => {
                 placeholder="Enter Price"
                 value={newListing.price}
                 onChange={handleChange}
-                className="w-1/2 p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full sm:w-1/2 p-2 border rounded-lg"
                 required
               />
             )}
@@ -171,11 +209,11 @@ const MyList = ({ user }) => {
             accept="image/*"
             multiple
             onChange={handlePhotoUpload}
-            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border rounded-lg"
           />
 
           {newListing.photos.length > 0 && (
-            <div className="mt-3 flex gap-2">
+            <div className="flex gap-2 mt-2">
               {newListing.photos.map((photo, index) => (
                 <img
                   key={index}
@@ -187,30 +225,26 @@ const MyList = ({ user }) => {
             </div>
           )}
 
-          <div className="flex gap-4 mt-6">
-            <button
-              type="submit"
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out"
-            >
+          <div className="flex gap-3">
+            <button type="submit" className="w-full bg-green-500 text-white p-2 rounded-lg">
               Submit
             </button>
-            <button
-              type="button"
-              onClick={() => setIsAdding(false)}
-              className="bg-gray-400 text-white px-6 py-3 rounded-lg hover:bg-gray-500 transition duration-300 ease-in-out"
-            >
+            <button type="button" onClick={() => setIsAdding(false)} className="w-full bg-gray-400 text-white p-2 rounded-lg">
               Cancel
             </button>
           </div>
         </form>
       ) : (
-        <button
-          onClick={() => setIsAdding(true)}
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out"
-        >
+        <button onClick={() => setIsAdding(true)} className="w-full md:w-auto bg-blue-500 text-white p-3 rounded-lg">
           Add New Listing
         </button>
       )}
+
+      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {listings.map((listing) => (
+          <ListingCard key={listing._id} listing={listing} />
+        ))}
+      </div>
     </div>
   );
 };

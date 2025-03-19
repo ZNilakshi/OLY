@@ -39,7 +39,7 @@ const HowItWorks = () => {
         </button>
       </div>
 
-      {/* Swiper for Small Screens */}
+     
       <div className="md:hidden px-4">
         <Swiper
           modules={[Pagination, Autoplay]}
@@ -59,7 +59,7 @@ const HowItWorks = () => {
         </Swiper>
       </div>
 
-      {/* Grid for Larger Screens */}
+     
       <div className="hidden md:grid md:grid-cols-3 gap-8 px-4">
         {content.map((item, index) => (
           <div key={index} className="text-center">

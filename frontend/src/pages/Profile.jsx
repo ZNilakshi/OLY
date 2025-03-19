@@ -74,9 +74,9 @@ const ProfilePage = () => {
   
 
   return (
-    <div className="container mx-auto p-2 flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="flex flex-col md:flex-row gap-10 w-full max-w-7xl bg-white shadow-lg rounded-2xl p-6 border border-gray-300">
-        {/* Left Section: Profile Details */}
+    <div className="container mx-auto p-1 flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="flex flex-col md:flex-row gap-10 w-full max-w-8xl bg-white shadow-lg rounded-2xl p-3 border border-gray-300">
+      
         <div className="flex flex-col items-center text-center md:text-left w-full md:w-1/3 p-6 border-r border-gray-300">
           <img
             src={profileData.profilePicture}
@@ -95,8 +95,7 @@ const ProfilePage = () => {
           </button>
         </div>
 
-        {/* Right Section: Tabs for Listings, Wishlist, and Orders */}
-        <div className="flex flex-col w-full md:w-2/3 p-6">
+              <div className="flex flex-col w-full md:w-2/3 p-6">
           <div className="flex justify-between border-b border-gray-300 mb-4">
             {["My Listings", "Wishlist", "Orders"].map((tab) => (
               <button
@@ -119,7 +118,7 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      {/* Edit Profile Modal */}
+   
       {isEditing && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full border border-gray-300">

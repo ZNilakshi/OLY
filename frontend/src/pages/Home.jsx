@@ -25,7 +25,7 @@ const SignupPage = () => {
       } catch (error) {
         console.error("Error fetching user:", error);
       } finally {
-        setLoading(false); // Ensure loading is set to false after fetch
+        setLoading(false); 
       }
     };
 
@@ -36,7 +36,7 @@ const SignupPage = () => {
     if (!loading && user) {
       navigate("/dashboard");
     }
-  }, [user, navigate, loading]); // Ensure navigation only happens when loading is false
+  }, [user, navigate, loading]); 
 
   const handleGoogleSignIn = () => {
     window.location.href = "http://localhost:5000/auth/google";

@@ -7,9 +7,9 @@ const notifications = [
 const PoshmarkSection = () => {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between bg-[#fdfaf4] p-10">
-      {/* Left Side - Images and Notifications */}
+     
       <div className="relative w-full md:w-1/2 flex flex-col items-center">
-        {/* Background Image */}
+       
         <div className="relative w-80 h-80">
           <img
             src="/girls1.webp"
@@ -18,7 +18,7 @@ const PoshmarkSection = () => {
           />
         </div>
 
-        {/* Overlapping Images */}
+       
         <div className="absolute top-24 left-5 w-52 h-52 bg-white rounded-lg shadow-lg">
           <img
             src="/girls2.avif"
@@ -34,7 +34,7 @@ const PoshmarkSection = () => {
           />
         </div>
 
-        {/* Notification Cards */}
+       
         <div className="absolute bottom-[-20px] left-[-10px] w-60">
           {notifications.map((note, index) => (
             <div
@@ -53,7 +53,7 @@ const PoshmarkSection = () => {
         </div>
       </div>
 
-      {/* Right Side - Text Section */}
+     
       <div className="w-full md:w-1/2 mt-10 md:mt-0 text-center md:text-left">
         <div className="flex items-center justify-center md:justify-start mb-0">
           <span className="text-yellow-500 text-9xl font-bold">*</span>

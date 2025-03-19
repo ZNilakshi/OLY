@@ -19,12 +19,12 @@ const PopularBrands = () => {
       <h1 className="text-3xl font-bold text-center mb-6">POPULAR ON OLY</h1>
       <Swiper
         spaceBetween={20}
-        slidesPerView={2} // Default: 2 slides visible
+        slidesPerView={2} 
         breakpoints={{
-          768: { slidesPerView: 3 }, // On larger screens (≥768px), show 3 slides
+          768: { slidesPerView: 3 }, 
         }}
-        autoplay={{ delay: 2000 }} // Auto-slide every 2 sec
-        loop={true} // Infinite loop
+        autoplay={{ delay: 2000 }} 
+        loop={true} 
         modules={[Autoplay]}
         className="w-full"
       >

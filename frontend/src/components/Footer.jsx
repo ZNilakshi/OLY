@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
-          {/* Logo & About */}
+         
           <div>
             <h2 className="text-xl font-bold">Marketplace</h2>
             <p className="text-gray-400 mt-2">
@@ -14,7 +14,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Navigation */}
+          
           <div>
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="mt-2 space-y-2">
@@ -25,7 +25,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact & Social */}
+          
           <div>
             <h3 className="text-lg font-semibold">Connect With Us</h3>
             <p className="text-gray-400 mt-2">Email: support@marketplace.com</p>
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
+       
         <div className="border-t border-gray-700 mt-6 pt-4 text-center text-gray-400 text-sm">
           © {new Date().getFullYear()} Marketplace. All rights reserved.
         </div>
