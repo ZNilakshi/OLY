@@ -76,13 +76,15 @@ router.post("/api/listings", upload.array("photos"), async (req, res) => {
 
 router.get("/api/listings", async (req, res) => {
   try {
-    const listings = await Listing.find().populate("userId", "username email"); // Populate user details if needed
+    const listings = await Listing.find().populate("userId", "name email phone profilePicture");
     res.status(200).json(listings);
   } catch (error) {
     console.error("Error fetching listings:", error);
     res.status(500).json({ error: "Failed to fetch listings" });
   }
 });
+
+
 router.get("/api/listings/user/:userId", async (req, res) => {
   try {
     const userListings = await Listing.find({ userId: req.params.userId });
