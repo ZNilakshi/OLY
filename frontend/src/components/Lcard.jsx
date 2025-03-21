@@ -5,30 +5,18 @@ const ListingCard = ({ listing }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
 
-   console.log("Listing Data:", listing);
-
-   useEffect(() => {
+  useEffect(() => {
     if (listing.photos && listing.photos.length > 1) {
       const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) =>
-          (prevIndex + 1) % listing.photos.length
-        );
-      }, 3000); 
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % listing.photos.length);
+      }, 3000);
 
-      return () => clearInterval(interval); 
+      return () => clearInterval(interval);
     }
   }, [listing.photos]);
 
- 
-
- 
-  if (!listing.photos || listing.photos.length === 0) {
-    return <div className="text-center text-gray-500 py-4">No photos available for this listing.</div>;
-  }
-
-  
   const handleCardClick = () => {
-    navigate(`/listing/${listing._id}`, { state: { listing } });
+    navigate(`/lsting/${listing._id}`, { state: { listing } });
   };
 
   return (
@@ -43,28 +31,22 @@ const ListingCard = ({ listing }) => {
             alt={`Listing ${currentImageIndex}`}
             className="w-full h-64 object-cover transform transition-transform duration-500 hover:scale-105"
           />
-         
           {listing.priceType === "Free" && (
             <div className="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md">
               Free
             </div>
           )}
-         
           {listing.priceType === "Negotiable" && (
             <div className="absolute top-2 right-2 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md">
               Negotiable
             </div>
           )}
-          
           <div className="absolute top-2 left-2 bg-black bg-opacity-70 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md">
             {listing.rentOrSell}
           </div>
         </div>
-
-       
       </div>
 
-     
       <div className="mt-4">
         <h2 className="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-200">
           {listing.title}

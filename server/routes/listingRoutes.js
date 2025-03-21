@@ -94,4 +94,75 @@ router.get("/api/listings/user/:userId", async (req, res) => {
   }
 });
 
+// routes/listingRoutes.js
+
+// Edit Listing
+router.put("/api/listings/:id", upload.array("photos"), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { category, title, description, size, condition, rentOrSell, priceType, price } = req.body;
+
+    // Validate required fields
+    if (!category || !title || !description || !size || !condition) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    // Handle photo uploads (if new photos are provided)
+    let photoUrls = [];
+    if (req.files && req.files.length > 0) {
+      for (const file of req.files) {
+        const result = await cloudinary.uploader.upload(file.path, {
+          folder: "listings",
+        });
+        photoUrls.push(result.secure_url);
+      }
+    }
+
+    // Find the listing and update it
+    const updatedListing = await Listing.findByIdAndUpdate(
+      id,
+      {
+        category,
+        title,
+        description,
+        size,
+        condition,
+        rentOrSell,
+        priceType,
+        price,
+        photos: photoUrls.length > 0 ? photoUrls : undefined, // Only update photos if new ones are uploaded
+      },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedListing) {
+      return res.status(404).json({ error: "Listing not found" });
+    }
+
+    res.status(200).json(updatedListing);
+  } catch (error) {
+    console.error("Error updating listing:", error);
+    res.status(500).json({ error: "Failed to update listing" });
+  }
+});
+
+// Delete Listing
+router.delete("/api/listings/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Find and delete the listing
+    const deletedListing = await Listing.findByIdAndDelete(id);
+
+    if (!deletedListing) {
+      return res.status(404).json({ error: "Listing not found" });
+    }
+
+    res.status(200).json({ message: "Listing deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting listing:", error);
+    res.status(500).json({ error: "Failed to delete listing" });
+  }
+});
+
 module.exports = router;

@@ -4,10 +4,10 @@ const User = require("../models/User");
 
 const router = express.Router();
 
-// Google Auth Route
+
 router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
-// Google Auth Callback
+
 router.get(
   "/google/callback",
   passport.authenticate("google", {
@@ -16,8 +16,7 @@ router.get(
   })
 );
 
-// Get Logged-in User
-// Get Logged-in User
+
 router.get("/user", async (req, res) => {
   if (!req.user) return res.json(null);
 

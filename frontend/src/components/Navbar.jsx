@@ -31,7 +31,7 @@ const Navbar = () => {
         credentials: "include",
       });
       setUser(null);
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.error("Error logging out:", error);
     }
@@ -80,14 +80,16 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/signup" className="text-teal-600 border border-teal-600 px-4 py-2 rounded-full hover:bg-teal-100">
+              <Link to="/" className="text-teal-600 border border-teal-600 px-4 py-2 rounded-full hover:bg-teal-100">
                 Sign up
               </Link>
-              <Link to="/login" className="text-teal-600 hover:underline">Log in</Link>
+              <Link to="/" className="text-teal-600 hover:underline">Log in</Link>
             </>
           )}
-          <button className="bg-teal-600 text-white px-5 py-2 rounded-full hover:bg-teal-700">Sell now</button>
-        </div>
+          <Link to="/profile" className="bg-teal-600 text-white px-5 py-2 rounded-full hover:bg-teal-700">Sell now
+             
+              </Link>
+             </div>
 
         <button
           className="md:hidden text-gray-600 text-2xl"
@@ -101,8 +103,8 @@ const Navbar = () => {
         <div className="md:hidden flex flex-col items-center mt-4 space-y-4">
           {!user ? (
             <>
-              <Link to="/signup" className="hover:text-teal-600">Sign up</Link>
-              <Link to="/login" className="hover:text-teal-600">Log in</Link>
+              <Link to="/" className="hover:text-teal-600">Sign up</Link>
+              <Link to="/" className="hover:text-teal-600">Log in</Link>
             </>
           ) : (
             <button onClick={handleLogout} className="hover:text-teal-600">Logout</button>

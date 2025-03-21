@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 
 const ListingDetails = () => {
   const location = useLocation();
@@ -81,28 +81,7 @@ const ListingDetails = () => {
           </div>
 
          
-          {listing.userId && (
-         <div className="bg-gray-50 p-6 rounded-sm shadow-sm border border-gray">
-         <div className="flex items-center space-x-4">
-           <Link to={`/user/${listing.userId._id}`}>
-             <img
-               src={listing.userId.profilePicture || "https://via.placeholder.com/150"}
-               alt="User Profile"
-               className="w-16 h-16 rounded-full cursor-pointer hover:opacity-75 transition-opacity"
-             />
-           </Link>
-           <div>
-             <h3 className="text-lg font-semibold text-gray-900">Listed By</h3>
-             <p className="text-gray-700 flex items-center">
-               {listing.userId.name}<span className="mr-2">→</span> 
-             </p>
-           </div>
-         </div>
-         <button className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">
-           Chat with Seller
-         </button>
-       </div>
-          )}
+          
         </div>
       </div>
     </div>
