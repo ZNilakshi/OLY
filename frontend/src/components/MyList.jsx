@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Lcard from "./Lcard";
+import { FaEdit, FaTrash } from "react-icons/fa"; 
 
 const MyList = ({ user }) => {
   const [listings, setListings] = useState([]);
@@ -188,25 +189,26 @@ const MyList = ({ user }) => {
         {listings.map((listing) => (
           <div key={listing._id} className="relative">
             <Lcard listing={listing} />
-            <div className="absolute top-2 right-2 flex gap-2">
+            <div className="absolute top-18 right-2 flex gap-2">
               <button
                 onClick={() => handleEdit(listing)}
-                className="bg-yellow-500 text-white px-3 py-1 rounded-lg"
-              >
-                Edit
+                className="bg-yellow-500 text-white p-2 rounded-lg hover:bg-yellow-600 transition"
+                >
+                  <FaEdit className="w-5 h-5" /> 
+               
               </button>
               <button
                 onClick={() => handleDelete(listing._id)}
-                className="bg-red-500 text-white px-3 py-1 rounded-lg"
+                className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition"
               >
-                Delete
+                <FaTrash className="w-5 h-5" />
               </button>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Popup Form for Add/Edit Listing */}
+     
       {(isAdding || isEditing) && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
           <div className="bg-white rounded-lg shadow-lg w-full max-w-lg p-6">
