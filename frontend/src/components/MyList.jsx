@@ -185,7 +185,7 @@ const MyList = ({ user }) => {
       </button>
 
       
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {listings.map((listing) => (
           <div key={listing._id} className="relative">
             <Lcard listing={listing} />
@@ -229,6 +229,8 @@ const MyList = ({ user }) => {
                 <option value="Purses">Purses</option>
                 <option value="Sarees">Sarees</option>
                 <option value="Clothes">Clothes</option>
+                <option value="Accessorize">Accessorize</option>
+                <option value="Others">others</option>
               </select>
 
               <input

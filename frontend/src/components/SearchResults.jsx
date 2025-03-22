@@ -27,9 +27,9 @@ const SearchResults = () => {
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Search Results for "{query}"</h1>
       {results.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {results.map((listing) => (
-            <ListingCard key={listing._id} listing={listing} /> // Use ListingCard to display each listing
+            <ListingCard key={listing._id} listing={listing} /> 
           ))}
         </div>
       ) : (
