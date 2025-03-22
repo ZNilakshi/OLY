@@ -1,5 +1,4 @@
-import React, { } from "react";
-
+import React from "react";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from "./pages/Home";
@@ -10,9 +9,9 @@ import Profile from "./pages/Profile";
 import ListingDetails from "./pages/ListingDetails";
 import LDetails from "./pages/LDetails";
 import UserProfile from "./components/UserProfile";
+import SearchResults from "./components/SearchResults"; // Fixed import
 
 function App() {
- 
   return (
     <Router>
       <Navbar />
@@ -22,9 +21,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/listing/:id" element={<ListingDetails />} />
         <Route path="/lsting/:id" element={<LDetails />} />
-     
+        <Route path="/search" element={<SearchResults />} />
         <Route path="/user/:userId" element={<UserProfile />} />
-     
       </Routes>
       <Footer />
     </Router>

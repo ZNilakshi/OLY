@@ -5,6 +5,7 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [searchQuery, setSearchQuery] = useState(""); 
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -36,7 +37,12 @@ const Navbar = () => {
       console.error("Error logging out:", error);
     }
   };
-
+  const handleSearch = async (e) => {
+    e.preventDefault(); // Prevent form submission
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`); // Navigate to search results page
+    }
+  };
   if (location.pathname === "/") {
     return null;
   }
@@ -52,13 +58,19 @@ const Navbar = () => {
             </button>
           </div>
           <div className="relative w-full md:w-96">
+          <form onSubmit={handleSearch} className="relative w-full md:w-96">
             <input
               type="text"
               placeholder="Search for items"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-teal-400"
             />
-            <FaSearch className="absolute right-3 top-3 text-gray-500" />
-          </div>
+            <button type="submit" className="absolute right-3 top-3 text-gray-500">
+              <FaSearch />
+            </button>
+          </form>
+            </div>
         </div>
 
         <div className="hidden md:flex items-center gap-4">

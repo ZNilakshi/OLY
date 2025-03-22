@@ -165,4 +165,25 @@ router.delete("/api/listings/:id", async (req, res) => {
   }
 });
 
+
+// routes/listingRoutes.js
+router.get("/api/listings/search", async (req, res) => {
+  try {
+    const { q } = req.query; // Get the search query from the URL
+
+    // Search for listings where the title or category matches the query (case-insensitive)
+    const listings = await Listing.find({
+      $or: [
+        { title: { $regex: q, $options: "i" } }, // Case-insensitive search for title
+        { category: { $regex: q, $options: "i" } }, // Case-insensitive search for category
+      ],
+    }).populate("userId", "name email phone profilePicture");
+
+    res.status(200).json(listings);
+  } catch (error) {
+    console.error("Error searching listings:", error);
+    res.status(500).json({ error: "Failed to search listings" });
+  }
+});
+
 module.exports = router;

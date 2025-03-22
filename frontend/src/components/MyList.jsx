@@ -184,24 +184,24 @@ const MyList = ({ user }) => {
         Add New Listing
       </button>
 
-      {/* Listings Grid */}
+      
       <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {listings.map((listing) => (
           <div key={listing._id} className="relative">
             <Lcard listing={listing} />
-            <div className="absolute top-18 right-2 flex gap-2">
+            <div className="absolute top-2 right-2 flex gap-2">
               <button
                 onClick={() => handleEdit(listing)}
                 className="bg-yellow-500 text-white p-2 rounded-lg hover:bg-yellow-600 transition"
                 >
-                  <FaEdit className="w-5 h-5" /> 
+                  <FaEdit className="w-3 h-3" /> 
                
               </button>
               <button
                 onClick={() => handleDelete(listing._id)}
                 className="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition"
               >
-                <FaTrash className="w-5 h-5" />
+                <FaTrash className="w-3 h-3" />
               </button>
             </div>
           </div>
