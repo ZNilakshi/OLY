@@ -1,40 +1,75 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const NavBar = () => {
+const SecondNav = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Hide SecondNav on the home page (/)
+  if (location.pathname === '/') {
+    return null;
+  }
+
+  const handleClick = (category) => {
+    const normalizedCategory = category.toLowerCase(); // Normalize to lowercase
+    console.log("Category Clicked:", normalizedCategory); // Debugging
+    navigate(`/category/${normalizedCategory}`); // Navigate to the new page
+  };
+
   return (
-    <nav style={styles.nav}>
-      <ul style={styles.ul}>
-        <li style={styles.li}><a href="#women">Women</a></li>
-        <li style={styles.li}><a href="#men">Men</a></li>
-        <li style={styles.li}><a href="#designer">Designer</a></li>
-        <li style={styles.li}><a href="#kids">Kids</a></li>
-        <li style={styles.li}><a href="#home">Home</a></li>
-       </ul>
+    <nav className="bg-gray-100 p-3">
+      <ul className="list-none m-0 p-0 flex justify-around flex-wrap">
+        <li className="inline mx-2 my-1 sm:block sm:text-center">
+          <button
+            onClick={() => handleClick('BAGS')}
+            className="hover:bg-gray-200 px-4 py-2 rounded transition-colors"
+          >
+            BAGS
+          </button>
+        </li>
+        <li className="inline mx-2 my-1 sm:block sm:text-center">
+          <button
+            onClick={() => handleClick('SHOES')}
+            className="hover:bg-gray-200 px-4 py-2 rounded transition-colors"
+          >
+            SHOES
+          </button>
+        </li>
+        <li className="inline mx-2 my-1 sm:block sm:text-center">
+          <button
+            onClick={() => handleClick('PURSES')}
+            className="hover:bg-gray-200 px-4 py-2 rounded transition-colors"
+          >
+            PURSES
+          </button>
+        </li>
+        <li className="inline mx-2 my-1 sm:block sm:text-center">
+          <button
+            onClick={() => handleClick('SAREES')}
+            className="hover:bg-gray-200 px-4 py-2 rounded transition-colors"
+          >
+            SAREES
+          </button>
+        </li>
+        <li className="inline mx-2 my-1 sm:block sm:text-center">
+          <button
+            onClick={() => handleClick('CLOTHS')}
+            className="hover:bg-gray-200 px-4 py-2 rounded transition-colors"
+          >
+            CLOTHS
+          </button>
+        </li>
+        <li className="inline mx-2 my-1 sm:block sm:text-center">
+          <button
+            onClick={() => handleClick('ACCESSORIES')}
+            className="hover:bg-gray-200 px-4 py-2 rounded transition-colors"
+          >
+            ACCESSORIES
+          </button>
+        </li>
+      </ul>
     </nav>
   );
 };
 
-const styles = {
-  nav: {
-    backgroundColor: '#f8f9fa',
-    padding: '10px',
-  },
-  ul: {
-    listStyleType: 'none',
-    margin: 0,
-    padding: 0,
-    display: 'flex',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap', // Allow items to wrap on smaller screens
-  },
-  li: {
-    display: 'inline',
-    margin: '5px 10px', // Add margin for spacing
-    '@media (max-width: 568px)': {
-      display: 'block', // Stack items vertically on small screens
-      textAlign: 'center', // Center-align text
-    },
-  },
-};
-
-export default NavBar;
+export default SecondNav;

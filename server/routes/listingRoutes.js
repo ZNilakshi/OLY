@@ -83,17 +83,33 @@ router.get("/api/listings", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch listings" });
   }
 });
-
-
-router.get("/api/listings/user/:userId", async (req, res) => {
+router.get('/api/listings/category/:category', async (req, res) => {
+  const { category } = req.params;
   try {
-    const userListings = await Listing.find({ userId: req.params.userId });
-    res.json(userListings);
+    const listings = await Listing.find({ category: new RegExp(category, 'i') })
+      .populate("userId", "name email phone profilePicture"); // Populate user details
+    res.json(listings);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching listings" });
+    res.status(500).json({ message: "Error fetching listings", error });
   }
 });
 
+router.get("/api/listings/user/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    // Validate userId
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ error: "Invalid user ID" });
+    }
+
+    const userListings = await Listing.find({ userId }).populate("userId", "name email phone profilePicture");
+    res.json(userListings);
+  } catch (error) {
+    console.error("Error fetching listings:", error);
+    res.status(500).json({ error: "Failed to fetch listings" });
+  }
+});
 // routes/listingRoutes.js
 
 // Edit Listing

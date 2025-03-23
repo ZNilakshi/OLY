@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SecondNav from "./../components/SecondNav";
+
 import ListingCard from "./../components/ListingCard"; // Import the ListingCard component
 
 const Dashboard = () => {
@@ -51,8 +51,8 @@ const Dashboard = () => {
 
   return (
     <div>
-      <SecondNav />
-      <div className="min-h-screen p-4 sm:p-6">
+    
+      <div className="min-h-screen p-5 sm:p-6">
         {/* Updated grid layout for responsive design */}
         <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {listings.map((listing) => (

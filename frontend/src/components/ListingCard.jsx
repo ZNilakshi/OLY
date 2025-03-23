@@ -33,7 +33,7 @@ const ListingCard = ({ listing }) => {
 
   return (
     <div
-      className="border border-gray-200 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer bg-white"
+      className="border border-gray-200 p-1 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer bg-white"
       onClick={handleCardClick}
     >
       <div className="relative">

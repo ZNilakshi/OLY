@@ -10,11 +10,15 @@ import ListingDetails from "./pages/ListingDetails";
 import LDetails from "./pages/LDetails";
 import UserProfile from "./components/UserProfile";
 import SearchResults from "./components/SearchResults"; // Fixed import
-
+import CategoryListings from "./pages/CategoryPage";
+import SecondNav from "./components/SecondNav"; // Import the SecondNav compon
 function App() {
   return (
     <Router>
       <Navbar />
+      <SecondNav />
+   
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
@@ -23,6 +27,9 @@ function App() {
         <Route path="/lsting/:id" element={<LDetails />} />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/user/:userId" element={<UserProfile />} />
+        <Route path="/category/:category" element={<CategoryListings />} />
+      
+        
       </Routes>
       <Footer />
     </Router>
