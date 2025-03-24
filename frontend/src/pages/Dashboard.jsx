@@ -6,7 +6,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [listings, setListings] = useState([]);
-  const [user, setUser] = useState(null); // Add user state
+  const [user, setUser] = useState(null);
 
   // Fetch user data
   useEffect(() => {
@@ -17,9 +17,9 @@ const Dashboard = () => {
         });
         const data = await response.json();
         if (!data.user) {
-          navigate("/signup");
+          navigate("/");
         } else {
-          setUser(data.user); // Set user data if available
+          setUser(data.user);
         }
       } catch (error) {
         console.error("Error fetching user:", error);
@@ -52,17 +52,32 @@ const Dashboard = () => {
   }
 
   return (
-    <div>
-      {/* You can now use the user data here */}
-      {user && (
-        <div className="p-4">
-          <h2 className="text-xl font-semibold">Welcome back, {user.name || user.username}!</h2>
-          {/* Add any other user-specific content */}
+    <div className="bg-gray-50">
+      {/* Header with photo */}
+      <div className="relative h-64 w-full">
+        {/* Background image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/beer.jpg')"
+          }}
+        >
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            {user && (
+              <div className="text-center p-4 text-white">
+                <h1 className="text-3xl sm:text-4xl font-bold mb-2">Welcome back, {user.name || user.username}!</h1>
+                <p className="text-lg sm:text-xl">Find your perfect place</p>
+              </div>
+            )}
+          </div>
         </div>
-      )}
+      </div>
       
-      <div className="min-h-screen p-5 sm:p-6">
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      {/* Listings grid */}
+      <div className="container mx-auto px-4 sm:px-6 py-8">
+        <h2 className="text-2xl font-bold mb-6">Available Properties</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {listings.map((listing) => (
             <ListingCard key={listing._id} listing={listing} />
           ))}

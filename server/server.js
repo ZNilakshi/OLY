@@ -5,7 +5,6 @@ const cors = require("cors");
 
 const mongoose = require("mongoose");
 
-const reviewRoutes = require("./routes/reviewRoutes");
 
 
 require("./config/passport");
@@ -34,7 +33,6 @@ const app = express();
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use("/api", listingRoutes);
 
-app.use("/api/reviews", reviewRoutes);
 
 
 

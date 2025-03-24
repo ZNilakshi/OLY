@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import {  Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const ListingDetails = () => {
   const navigate = useNavigate();
@@ -7,7 +7,7 @@ const ListingDetails = () => {
   const [listing, setListing] = useState(null);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null); // For logged-in user data
+  const [user, setUser] = useState(null);
 
   // Fetch logged-in user data
   useEffect(() => {
@@ -66,17 +66,15 @@ const ListingDetails = () => {
       return;
     }
 
-    if (listing?.userId) {
-      navigate(`/chat/${listing.userId._id}`, {
-        state: {
-          seller: {
-            id: listing.userId._id,
-            name: listing.userId.name,
-            profilePicture: listing.userId.profilePicture || "https://via.placeholder.com/150",
-          },
-          currentUser: user // Pass the logged-in user data
-        },
-      });
+    if (listing?.userId?.phone) {
+      // Open WhatsApp with the seller's number
+      const phoneNumber = listing.userId.phone;
+      // Remove any non-digit characters from the phone number
+      const cleanedNumber = phoneNumber.replace(/\D/g, '');
+      const whatsappUrl = `https://wa.me/${cleanedNumber}`;
+      window.open(whatsappUrl, '_blank');
+    } else {
+      alert("Seller hasn't provided a phone number");
     }
   };
 
@@ -158,13 +156,18 @@ const ListingDetails = () => {
                   <p className="text-gray-700 flex items-center">
                     {listing.userId.name}<span className="mr-2">→</span>
                   </p>
+                  {listing.userId.phone && (
+                    <p className="text-sm text-gray-500 mt-1">
+                      Phone: {listing.userId.phone}
+                    </p>
+                  )}
                 </div>
               </div>
               <button
-                className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
+                className="mt-4 w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors"
                 onClick={handleChatWithSeller}
               >
-                {user ? "Chat with Seller" : "Login to Chat"}
+                {user ? "Chat on WhatsApp" : "Login to Chat"}
               </button>
             </div>
           )}
