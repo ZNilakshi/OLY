@@ -11,7 +11,8 @@ import LDetails from "./pages/LDetails";
 import UserProfile from "./components/UserProfile";
 import SearchResults from "./components/SearchResults"; // Fixed import
 import CategoryListings from "./pages/CategoryPage";
-import SecondNav from "./components/SecondNav"; // Import the SecondNav compon
+import SecondNav from "./components/SecondNav"; 
+
 function App() {
   return (
     <Router>
@@ -28,8 +29,7 @@ function App() {
         <Route path="/search" element={<SearchResults />} />
         <Route path="/user/:userId" element={<UserProfile />} />
         <Route path="/category/:category" element={<CategoryListings />} />
-      
-        
+             
       </Routes>
       <Footer />
     </Router>

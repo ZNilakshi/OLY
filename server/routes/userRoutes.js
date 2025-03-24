@@ -43,6 +43,30 @@ router.get("/api/users/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch user" });
   }
 });
+// Fetch all users (for chat)
+router.get("/api/users", async (req, res) => {
+  try {
+    const users = await User.find({}, "name profilePicture"); // Fetch only name and profilePicture
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ error: "Failed to fetch users" });
+  }
+});
+// routes/userRoutes.js - Add this new route
 
-
+// Get current user
+router.get("/api/current-user", async (req, res) => {
+  try {
+    if (!req.user) {
+      return res.json(null);
+    }
+    
+    const user = await User.findById(req.user._id);
+    res.json(user);
+  } catch (error) {
+    console.error("Error fetching current user:", error);
+    res.status(500).json({ error: "Failed to fetch current user" });
+  }
+});
 module.exports = router;

@@ -20,6 +20,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+router.get("/user/:userId", async (req, res) => {
+  try {
+    const listings = await Listing.find({ userId: req.params.userId });
+    res.json(listings);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 router.post("/api/listings", upload.array("photos"), async (req, res) => {
   try {
@@ -201,5 +209,38 @@ router.get("/api/listings/search", async (req, res) => {
     res.status(500).json({ error: "Failed to search listings" });
   }
 });
+// Fetch a single listing by ID
+router.get("/api/listings/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
 
+    // Validate listing ID
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: "Invalid listing ID" });
+    }
+
+    const listing = await Listing.findById(id).populate("userId", "name email phone profilePicture");
+
+    if (!listing) {
+      return res.status(404).json({ error: "Listing not found" });
+    }
+
+    res.status(200).json(listing);
+  } catch (error) {
+    console.error("Error fetching listing:", error);
+    res.status(500).json({ error: "Failed to fetch listing" });
+  }
+});
+router.get("/api/listings/:id/reviews", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Fetch reviews for the listing
+    const reviews = await Review.find({ listedUserId: id });
+    res.status(200).json(reviews);
+  } catch (error) {
+    console.error("Error fetching reviews:", error);
+    res.status(500).json({ error: "Failed to fetch reviews" });
+  }
+});
 module.exports = router;
