@@ -18,17 +18,17 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="mt-2 space-y-2">
-              <li><a href="/about" className="text-gray-400 hover:text-white">About Us</a></li>
-              <li><a href="/how-it-works" className="text-gray-400 hover:text-white">How It Works</a></li>
-              <li><a href="/contact" className="text-gray-400 hover:text-white">Contact</a></li>
-              <li><a href="/terms" className="text-gray-400 hover:text-white">Terms & Conditions</a></li>
+              <li><a href="/AboutUs" className="text-gray-400 hover:text-white">About Us</a></li>
+              <li><a href="/HowItWorks" className="text-gray-400 hover:text-white">How It Works</a></li>
+              <li><a href="/Contact" className="text-gray-400 hover:text-white">Contact</a></li>
+              <li><a href="/TermsConditions" className="text-gray-400 hover:text-white">Terms & Conditions</a></li>
             </ul>
           </div>
 
           
           <div>
             <h3 className="text-lg font-semibold">Connect With Us</h3>
-            <p className="text-gray-400 mt-2">Email: support@marketplace.com</p>
+            <p className="text-gray-400 mt-2">Email: lylumarketplace@gmail.com</p>
             <div className="flex justify-center md:justify-start space-x-4 mt-3">
               <a href="https://facebook.com" className="text-gray-400 hover:text-white text-xl"><FaFacebook /></a>
               <a href="https://instagram.com" className="text-gray-400 hover:text-white text-xl"><FaInstagram /></a>

@@ -14,8 +14,8 @@ import CategoryListings from "./pages/CategoryPage";
 import SecondNav from "./components/SecondNav"; 
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
-import HowWorks from "./pages/HowWorks";
-import TermsConditon from "./pages/TermsConditions";
+import HowItWorks from "./pages/HowItWorks";
+import TermsConditions from "./pages/TermsConditions";
 
 function App() {
   return (
@@ -35,8 +35,9 @@ function App() {
         <Route path="/category/:category" element={<CategoryListings />} />
         <Route path="/AboutUs"  element={<AboutUs />} />
         <Route path="/Contact" element={<Contact />} />
-        <Route path="/HowWorks" element={<HowWorks/>} />
-        <Route path="/TermsConditon" element={<TermsConditon />} />
+        <Route path="/HowItWorks" element={<HowItWorks />} />
+        <Route path="/TermsConditions" element={<TermsConditions />} />
+
        
       </Routes>
       <Footer />
