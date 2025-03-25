@@ -12,6 +12,10 @@ import UserProfile from "./components/UserProfile";
 import SearchResults from "./components/SearchResults"; // Fixed import
 import CategoryListings from "./pages/CategoryPage";
 import SecondNav from "./components/SecondNav"; 
+import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import HowWorks from "./pages/HowWorks";
+import TermsConditon from "./pages/TermsConditions";
 
 function App() {
   return (
@@ -29,7 +33,11 @@ function App() {
         <Route path="/search" element={<SearchResults />} />
         <Route path="/user/:userId" element={<UserProfile />} />
         <Route path="/category/:category" element={<CategoryListings />} />
-             
+        <Route path="/AboutUs"  element={<AboutUs />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/HowWorks" element={<HowWorks/>} />
+        <Route path="/TermsConditon" element={<TermsConditon />} />
+       
       </Routes>
       <Footer />
     </Router>

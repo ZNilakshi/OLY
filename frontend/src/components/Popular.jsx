@@ -9,8 +9,9 @@ const brands = [
   { name: "SHOES", image: "/shoes.jpg" },
   { name: "HEELS", image: "/heels.webp" },
   { name: "SAREE", image: "/sarees.webp" },
-  { name: "CLOTHS", image: "/cloths.jpg" },
+  { name: "CLOTHS", image: "/cloths.webp" },
   { name: "BAGS", image: "/bags.jpg" },
+  { name: "ACCESSORIES", image: "/accessories.jpg" },
 ];
 
 const PopularBrands = () => {
