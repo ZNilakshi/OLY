@@ -10,11 +10,9 @@ const Dashboard = () => {
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
-  // Fetch user data and listings
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch user
         const userResponse = await fetch("http://localhost:5000/api/auth/user", {
           credentials: "include",
         });
@@ -27,7 +25,6 @@ const Dashboard = () => {
         
         setUser(userData.user);
 
-        // Fetch listings
         const listingsResponse = await fetch("http://localhost:5000/api/listings");
         if (!listingsResponse.ok) throw new Error("Failed to fetch listings");
         const listingsData = await listingsResponse.json();
@@ -71,13 +68,15 @@ const Dashboard = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Hero Section with Background */}
+     
       <div className="relative">
         <div 
-          className="absolute inset-0 bg-cover bg-center min-h-[66vh]"
+          className="h-[500px] bg-cover bg-center w-full" 
           style={{
-            backgroundImage: "url('/home.avif')",
-            backgroundAttachment: 'fixed'
+            backgroundImage: "url('/dashboard.webp')",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover"
           }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
@@ -88,27 +87,17 @@ const Dashboard = () => {
               <p className="text-lg sm:text-xl md:text-2xl mb-6">
                 Discover your perfect space
               </p>
-              
             </div>
           </div>
         </div>
-        <div className="pt-[66vh]"></div> {/* Spacer for content below */}
       </div>
 
-      {/* Listings Section */}
+      {/* Listings section */}
       <div className="container mx-auto px-4 sm:px-6 py-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
             Available Properties
           </h2>
-          <div className="flex space-x-2">
-            <button className="px-4 py-2 border rounded-lg hover:bg-gray-100">
-              Filter
-            </button>
-            <button className="px-4 py-2 border rounded-lg hover:bg-gray-100">
-              Sort
-            </button>
-          </div>
         </div>
 
         {listings.length === 0 ? (

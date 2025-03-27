@@ -12,14 +12,14 @@ const UserSchema = new mongoose.Schema({
 
   role: { type: String, enum: ["admin", "user"], default: "user" },
 });
-// Add a virtual for reviews
+
 UserSchema.virtual('reviews', {
   ref: 'Review',
   localField: '_id',
   foreignField: 'listedUserId'
 });
 
-// Update average rating when reviews change
+
 UserSchema.methods.updateAverageRating = async function() {
   const reviews = await mongoose.model('Review').find({ listedUserId: this._id });
   if (reviews.length > 0) {

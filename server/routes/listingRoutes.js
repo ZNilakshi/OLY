@@ -118,9 +118,7 @@ router.get("/api/listings/user/:userId", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch listings" });
   }
 });
-// routes/listingRoutes.js
 
-// Edit Listing
 router.put("/api/listings/:id", upload.array("photos"), async (req, res) => {
   try {
     const { id } = req.params;
@@ -170,7 +168,7 @@ router.put("/api/listings/:id", upload.array("photos"), async (req, res) => {
   }
 });
 
-// Delete Listing
+
 router.delete("/api/listings/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -190,7 +188,7 @@ router.delete("/api/listings/:id", async (req, res) => {
 });
 
 
-// routes/listingRoutes.js
+
 router.get("/api/listings/search", async (req, res) => {
   try {
     const { q } = req.query; // Get the search query from the URL
@@ -209,7 +207,7 @@ router.get("/api/listings/search", async (req, res) => {
     res.status(500).json({ error: "Failed to search listings" });
   }
 });
-// Fetch a single listing by ID
+
 router.get("/api/listings/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -235,7 +233,7 @@ router.get("/api/listings/:id/reviews", async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Fetch reviews for the listing
+    
     const reviews = await Review.find({ listedUserId: id });
     res.status(200).json(reviews);
   } catch (error) {

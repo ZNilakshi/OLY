@@ -1,7 +1,51 @@
-import React from 'react';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import React, { useState } from "react";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedin,
+} from "react-icons/fa";
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        setStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
@@ -18,7 +62,7 @@ const ContactPage = () => {
           {/* Left Side: Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Your Name
@@ -26,6 +70,10 @@ const ContactPage = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                   placeholder="John Doe"
                 />
@@ -38,6 +86,10 @@ const ContactPage = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                   placeholder="you@example.com"
                 />
@@ -49,7 +101,11 @@ const ContactPage = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows="5"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                   placeholder="Your message here..."
                 ></textarea>
@@ -61,6 +117,8 @@ const ContactPage = () => {
               >
                 Send Message
               </button>
+
+              {status && <p className="mt-4 text-center text-gray-700">{status}</p>}
             </form>
           </div>
 
@@ -70,7 +128,6 @@ const ContactPage = () => {
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h2>
               <div className="space-y-4">
-
                 <div className="flex items-start">
                   <FaPhone className="text-teal-600 mt-1 mr-4 text-xl" />
                   <div>
@@ -110,27 +167,20 @@ const ContactPage = () => {
           </div>
         </div>
 
-      
-
         {/* FAQ Section */}
         <div className="mt-12 bg-white p-8 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4">
-            {[
-              {
-                question: "How do I sell my pre-loved items?",
-                answer: "Simply create an account, list your items with photos and descriptions, and set your price. We handle the rest!"
-              }
-            ].map((item, index) => (
-              <div key={index} className="border-b border-gray-200 pb-4">
-                <h3 className="font-semibold text-gray-800">{item.question}</h3>
-                <p className="text-gray-600 mt-1">{item.answer}</p>
-              </div>
-            ))}
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="font-semibold text-gray-800">How do I sell my pre-loved items?</h3>
+              <p className="text-gray-600 mt-1">
+                Simply create an account, list your items with photos and descriptions, and set your price.
+                We handle the rest!
+              </p>
+            </div>
           </div>
         </div>
 
-       
       </div>
     </div>
   );
