@@ -43,7 +43,7 @@ router.get("/api/users/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch user" });
   }
 });
-// Fetch all users (for chat)
+
 router.get("/api/users", async (req, res) => {
   try {
     const users = await User.find({}, "name profilePicture"); // Fetch only name and profilePicture
@@ -53,9 +53,7 @@ router.get("/api/users", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch users" });
   }
 });
-// routes/userRoutes.js - Add this new route
 
-// Get current user
 router.get("/api/current-user", async (req, res) => {
   try {
     if (!req.user) {

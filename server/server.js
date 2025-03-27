@@ -2,7 +2,6 @@ const express = require("express");
 const session = require("express-session");
 const passport = require("passport");
 const cors = require("cors");
-
 const mongoose = require("mongoose");
 
 
@@ -11,7 +10,9 @@ require("./config/passport");
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
-const listingRoutes = require("./routes/listingRoutes"); // Add this line
+const listingRoutes = require("./routes/listingRoutes"); 
+
+const sendMailRouter = require("./routes/sendMailRouter"); 
 
 
 
@@ -53,6 +54,8 @@ app.use(passport.session());
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(listingRoutes); 
+app.use("/api/send-email", sendMailRouter); 
+
 
 
 app.listen(5000, () => {

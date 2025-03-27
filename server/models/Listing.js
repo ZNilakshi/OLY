@@ -1,4 +1,4 @@
-// models/Listing.js
+
 const mongoose = require("mongoose");
 
 const ListingSchema = new mongoose.Schema({
@@ -11,7 +11,7 @@ const ListingSchema = new mongoose.Schema({
   rentOrSell: { type: String, required: true },
   priceType: { type: String, required: true },
   price: { type: Number },
-  photos: [{ type: String }], // Array of photo URLs
+  photos: [{ type: String }], 
   createdAt: { type: Date, default: Date.now },
 });
 

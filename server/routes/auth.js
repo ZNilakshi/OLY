@@ -26,15 +26,15 @@ router.get("/user", async (req, res) => {
     name: user.name,
     email: user.email,
     role: user.role,
-    about: user.about,  // Add this
-    phone: user.phone,  // Add this
-    location: user.location,  // Add this
-    profilePicture: user.profilePicture,  // Add this
+    about: user.about,  
+    phone: user.phone,  
+    location: user.location,  
+    profilePicture: user.profilePicture,  
   });
 });
 
 
-// Logout Route
+
 router.get("/logout", (req, res) => {
   req.logout(() => {
     req.session = null;

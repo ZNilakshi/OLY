@@ -101,14 +101,7 @@ const Dashboard = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
             Available Properties
           </h2>
-          <div className="flex space-x-2">
-            <button className="px-4 py-2 border rounded-lg hover:bg-gray-100">
-              Filter
-            </button>
-            <button className="px-4 py-2 border rounded-lg hover:bg-gray-100">
-              Sort
-            </button>
-          </div>
+          
         </div>
 
         {listings.length === 0 ? (
