@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaChevronDown, FaSearch, FaBars, FaTimes } from "react-icons/fa";
+import {  FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
