@@ -121,6 +121,13 @@ const Navbar = () => {
           )}
           <Link to="/" className="hover:text-teal-600">Home</Link>
           <Link to="/about" className="hover:text-teal-600">About</Link>
+          <Link to="/profile">
+                <img
+                  src={user.profilePicture || "/default-avatar.png"}
+                  alt="Profile"
+                  className="rounded-full w-8 h-8 cursor-pointer"
+                />
+              </Link>
         </div>
       )}
     </nav>
