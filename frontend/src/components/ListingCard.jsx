@@ -45,7 +45,7 @@ const ListingCard = ({ listing }) => {
           />
          
           {listing.priceType === "Free" && (
-            <div className="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md">
+            <div className="absolute top-2 right-2 bg-teal-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md">
               Free
             </div>
           )}
@@ -66,7 +66,7 @@ const ListingCard = ({ listing }) => {
 
      
       <div className="mt-4">
-        <h2 className="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-200">
+        <h2 className="text-xl font-bold text-gray-800 hover:text-teal-600 transition-colors duration-200">
           {listing.title}
         </h2>
         <p className="text-gray-600 mt-2">

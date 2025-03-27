@@ -53,9 +53,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <h1 className="text-teal-600 text-3xl font-bold">OLY</h1>
           <div className="hidden md:block relative">
-            <button className="flex items-center gap-2 text-gray-700 font-medium hover:text-teal-600">
-              Catalog <FaChevronDown className="text-sm" />
-            </button>
+           
           </div>
           <div className="relative w-full md:w-96">
           <form onSubmit={handleSearch} className="relative w-full md:w-96">
