@@ -1,224 +1,221 @@
 import React from 'react';
-import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import { FaCheck, FaTimes, FaExclamationTriangle, FaShieldAlt, FaHandshake, FaUserLock } from 'react-icons/fa';
 
 const TermsConditions = () => {
   return (
-    <div className="bg-gray-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-teal-600 to-green-600 py-8 px-6 text-white">
-          <h1 className="text-3xl font-bold mb-2">Terms and Conditions</h1>
-          <p className="text-teal-100">Last updated: June 10, 2024</p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        {/* Header Card */}
+        <div className="bg-white rounded-xl shadow-md overflow-hidden mb-8 border border-gray-200">
+          <div className="bg-gradient-to-r from-teal-600 to-green-600 p-8 text-center">
+            <h1 className="text-3xl font-bold text-white mb-2  tracking-tight">Terms and Conditions</h1>
+            <div className="inline-block bg-white/20 px-3 py-1 rounded-full text-sm text-white/90 font-medium">
+              Last Updated: 27.03.2025
+            </div>
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="p-6 sm:p-8">
-          {/* Update Notice */}
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-8">
-            <div className="flex">
-              <div className="flex-shrink-0">
-                <FaExclamationTriangle className="h-5 w-5 text-yellow-400" />
-              </div>
-              <div className="ml-3">
-                <p className="text-sm text-yellow-700">
-                  Our updated Terms & Conditions came into effect on June 10, 2024. By using our platform, you agree to these terms.
+        {/* Main Content */}
+        <div className="space-y-8">
+          {/* Intro Card */}
+          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <div className="prose prose-indigo max-w-none">
+              <p className="text-lg text-gray-600">
+                Welcome to <span className="font-semibold text-indigo-600">LYLU</span>, the peer-to-peer marketplace 
+                where users connect to buy, sell, and rent items through direct meetups. 
+                These Terms govern your use of our platform.
+              </p>
+              <div className="mt-4 p-4 bg-indigo-50 rounded-lg border-l-4 border-indigo-400">
+                <p className="text-indigo-700 flex items-start">
+                  <FaExclamationTriangle className="flex-shrink-0 mt-1 mr-3 text-indigo-500" />
+                  <span>
+                    <strong>Important:</strong> LYLU is a connection platform only. All transactions 
+                    are between users—we don't handle payments, shipping, or guarantees.
+                  </span>
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Introduction */}
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Welcome to Our Marketplace</h2>
-            <p className="text-gray-600 mb-4">
-              These Terms and Conditions ("Terms") govern your use of our university-focused marketplace platform ("Platform"). 
-              Please read them carefully before using our services.
-            </p>
-          </section>
-
-          {/* TOC */}
-          <div className="mb-8 bg-gray-50 p-4 rounded-lg">
-            <h3 className="font-bold text-gray-800 mb-2">Table of Contents</h3>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600">
-              <li>1. About Our Platform</li>
-              <li>2. User Responsibilities</li>
-              <li>3. Buying and Selling</li>
-              <li>4. Transactions and Payments</li>
-              <li>5. Content and Conduct</li>
-              <li>6. Privacy and Data</li>
-              <li>7. Account Management</li>
-              <li>8. Dispute Resolution</li>
-              <li>9. Limitation of Liability</li>
-              <li>10. Changes to Terms</li>
-            </ul>
-          </div>
-
-          {/* Main Sections */}
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">1. About Our Platform</h2>
-            <p className="text-gray-600 mb-4">
-              Our Platform connects university students to buy, sell, and rent pre-loved items within their campus community. 
-              We act solely as an intermediary and are not party to any transactions between users.
-            </p>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">2. User Responsibilities</h2>
-            <p className="text-gray-600 mb-4">
-              To use our Platform, you must:
-            </p>
-            <ul className="space-y-2 mb-4">
-              <li className="flex items-start">
-                <FaCheckCircle className="text-teal-500 mt-1 mr-2 flex-shrink-0" />
-                <span className="text-gray-600">Be a currently enrolled university student</span>
-              </li>
-              <li className="flex items-start">
-                <FaCheckCircle className="text-teal-500 mt-1 mr-2 flex-shrink-0" />
-                <span className="text-gray-600">Use your university email for verification</span>
-              </li>
-              <li className="flex items-start">
-                <FaCheckCircle className="text-teal-500 mt-1 mr-2 flex-shrink-0" />
-                <span className="text-gray-600">Only list items you legally own</span>
-              </li>
-              <li className="flex items-start">
-                <FaCheckCircle className="text-teal-500 mt-1 mr-2 flex-shrink-0" />
-                <span className="text-gray-600">Comply with all university policies</span>
-              </li>
-            </ul>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">3. Buying and Selling</h2>
-            <div className="mb-4">
-              <h3 className="font-semibold text-gray-800 mb-2">For Sellers:</h3>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li>Accurately describe items with clear photos</li>
-                <li>Price items fairly (no commercial selling)</li>
-                <li>Arrange safe, public meetups on campus</li>
-                <li>Remove sold items promptly</li>
-              </ul>
-            </div>
-            <div className="mb-4">
-              <h3 className="font-semibold text-gray-800 mb-2">For Buyers:</h3>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li>Inspect items before payment</li>
-                <li>Communicate clearly with sellers</li>
-                <li>Only use WhatsApp for transactions</li>
-                <li>Meet in designated safe zones</li>
-              </ul>
-            </div>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">4. Transactions and Payments</h2>
-            <p className="text-gray-600 mb-4">
-              All transactions are conducted directly between buyers and sellers via WhatsApp. 
-              We do not handle payments or offer buyer/seller protection. Users are responsible for:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-4">
-              <li>Verifying item condition before payment</li>
-              <li>Using secure payment methods (cash recommended)</li>
-              <li>Resolving any disputes directly</li>
-            </ul>
-            <div className="bg-red-50 border-l-4 border-red-400 p-4">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <FaExclamationTriangle className="h-5 w-5 text-red-400" />
+          {/* Who Can Use */}
+          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <FaUserLock className="mr-3 text-indigo-500" />
+              <span>1. Eligibility</span>
+            </h2>
+            <div className="space-y-4">
+              <div className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100">
+                    <FaCheck className="h-3 w-3 text-green-600" />
+                  </div>
                 </div>
-                <div className="ml-3">
-                  <p className="text-sm text-red-700">
-                    Never share personal financial information through our Platform. All payments should be arranged in person.
-                  </p>
+                <p className="ml-3 text-gray-600">Must be at least 18 years old</p>
+              </div>
+              <div className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100">
+                    <FaCheck className="h-3 w-3 text-green-600" />
+                  </div>
                 </div>
+                <p className="ml-3 text-gray-600">Must provide accurate personal information</p>
+              </div>
+              <div className="flex items-start">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-red-100">
+                    <FaTimes className="h-3 w-3 text-red-600" />
+                  </div>
+                </div>
+                <p className="ml-3 text-gray-600">No commercial resellers or business accounts</p>
               </div>
             </div>
-          </section>
+          </div>
 
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">5. Content and Conduct</h2>
-            <p className="text-gray-600 mb-4">
-              You agree not to:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-4">
-              <li>Post prohibited items (see Restricted Items list)</li>
-              <li>Use offensive language or harass others</li>
-              <li>Share false information</li>
-              <li>Circumvent our Platform for commercial purposes</li>
-            </ul>
-          </section>
+          {/* User Responsibilities */}
+          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <FaHandshake className="mr-3 text-indigo-500" />
+              <span>2. User Responsibilities</span>
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Sellers */}
+              <div className="bg-indigo-50/50 p-5 rounded-lg border border-indigo-100">
+                <h3 className="font-semibold text-indigo-800 mb-3">Sellers Must:</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="flex items-center justify-center h-5 w-5 rounded-full bg-white border border-indigo-200">
+                        <FaCheck className="h-3 w-3 text-indigo-600" />
+                      </div>
+                    </div>
+                    <span className="ml-2 text-gray-700">Accurately describe item condition</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="flex items-center justify-center h-5 w-5 rounded-full bg-white border border-indigo-200">
+                        <FaCheck className="h-3 w-3 text-indigo-600" />
+                      </div>
+                    </div>
+                    <span className="ml-2 text-gray-700">Honor agreed prices and meetups</span>
+                  </li>
+                </ul>
+              </div>
 
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">6. Privacy and Data</h2>
-            <p className="text-gray-600 mb-4">
-              We collect minimal data necessary to operate the Platform. By using our services, you consent to:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-4">
-              <li>Verification of your student status</li>
-              <li>Storage of your contact information</li>
-              <li>Use of cookies for basic functionality</li>
-            </ul>
-            <p className="text-gray-600">
-              We never sell your data to third parties. See our <a href="#" className="text-teal-600 hover:underline">Privacy Policy</a> for details.
-            </p>
-          </section>
+              {/* Buyers */}
+              <div className="bg-blue-50/50 p-5 rounded-lg border border-blue-100">
+                <h3 className="font-semibold text-blue-800 mb-3">Buyers Must:</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="flex items-center justify-center h-5 w-5 rounded-full bg-white border border-blue-200">
+                        <FaCheck className="h-3 w-3 text-blue-600" />
+                      </div>
+                    </div>
+                    <span className="ml-2 text-gray-700">Communicate respectfully</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="flex items-center justify-center h-5 w-5 rounded-full bg-white border border-blue-200">
+                        <FaCheck className="h-3 w-3 text-blue-600" />
+                      </div>
+                    </div>
+                    <span className="ml-2 text-gray-700">Complete transactions as agreed</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">7. Account Management</h2>
-            <p className="text-gray-600 mb-4">
-              You may deactivate your account at any time. We reserve the right to suspend accounts that:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-4">
-              <li>Violate these Terms</li>
-              <li>Show fraudulent activity</li>
-              <li>Are no longer associated with a university</li>
-            </ul>
-          </section>
+            {/* Safety Notice */}
+            <div className="mt-6 bg-gradient-to-r from-amber-50 to-orange-50 p-5 rounded-lg border border-amber-100">
+              <h4 className="font-medium text-amber-800 mb-2 flex items-center">
+                <FaShieldAlt className="mr-2 text-amber-600" />
+                Safety First
+              </h4>
+              <ul className="list-disc pl-5 space-y-1 text-amber-700">
+                <li>Always meet in public, well-lit areas</li>
+                <li>Bring a friend if possible</li>
+                <li>Trust your instincts—if something feels wrong, walk away</li>
+              </ul>
+            </div>
+          </div>
 
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">8. Dispute Resolution</h2>
-            <p className="text-gray-600 mb-4">
-              As we don't mediate transactions, please:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-4">
-              <li>Attempt to resolve issues directly with the other party</li>
-              <li>Report serious concerns to university authorities</li>
-              <li>Contact us only for platform-related issues</li>
-            </ul>
-          </section>
+          {/* Prohibited Items */}
+          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">3. Prohibited Items</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="bg-red-50/50 p-4 rounded-lg">
+                <h3 className="font-medium text-red-700 mb-2">Never Allowed</h3>
+                <ul className="space-y-2 text-red-600">
+                  <li className="flex items-start">
+                    <FaTimes className="flex-shrink-0 mt-1 mr-2 text-red-500" />
+                    <span>Weapons or illegal items</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FaTimes className="flex-shrink-0 mt-1 mr-2 text-red-500" />
+                    <span>Drugs or paraphernalia</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FaTimes className="flex-shrink-0 mt-1 mr-2 text-red-500" />
+                    <span>Stolen property</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-amber-50/50 p-4 rounded-lg">
+                <h3 className="font-medium text-amber-700 mb-2">Restricted Content</h3>
+                <ul className="space-y-2 text-amber-600">
+                  <li className="flex items-start">
+                    <FaTimes className="flex-shrink-0 mt-1 mr-2 text-amber-500" />
+                    <span>Adult or explicit material</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FaTimes className="flex-shrink-0 mt-1 mr-2 text-amber-500" />
+                    <span>Counterfeit goods</span>
+                  </li>
+                  <li className="flex items-start">
+                    <FaTimes className="flex-shrink-0 mt-1 mr-2 text-amber-500" />
+                    <span>Hazardous materials</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">9. Limitation of Liability</h2>
-            <p className="text-gray-600 mb-4">
-              Our Platform is provided "as is." We are not liable for:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-4">
-              <li>Transactions gone wrong</li>
-              <li>Item condition disputes</li>
-              <li>Personal injuries during meetups</li>
-              <li>Unauthorized account access</li>
-            </ul>
-          </section>
+          {/* Dispute Resolution */}
+          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">4. Disputes & Liability</h2>
+            <div className="prose prose-indigo max-w-none">
+              <p className="text-gray-600">
+                LYLU provides the platform but is <strong>not involved</strong> in transactions between users. 
+                We don't guarantee item condition, seller/buyer reliability, or transaction safety.
+              </p>
+              <div className="mt-4 bg-gray-50 p-4 rounded-lg">
+                <h3 className="font-medium text-gray-800 mb-2">If issues arise:</h3>
+                <ol className="list-decimal pl-5 space-y-2 text-gray-700">
+                  <li>Attempt to resolve directly with the other party</li>
+                  <li>Document all communications and evidence</li>
+                  <li>For fraud or illegal activity, contact local authorities</li>
+                  <li>Report platform violations to LYLU support</li>
+                </ol>
+              </div>
+            </div>
+          </div>
 
-          <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">10. Changes to Terms</h2>
-            <p className="text-gray-600 mb-4">
-              We may update these Terms periodically. Significant changes will be:
-            </p>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600 mb-4">
-              <li>Announced via email 30 days in advance</li>
-              <li>Highlighted on our Platform</li>
-              <li>Dated clearly at the top of this page</li>
-            </ul>
-            <p className="text-gray-600">
-              Continued use after changes constitutes acceptance of the new Terms.
-            </p>
-          </section>
-
-          {/* Acceptance */}
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-            <p className="text-gray-600 text-center">
-              By using our Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.
-            </p>
+          {/* Final Section */}
+          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 text-center">
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">By using LYLU, you agree to these Terms</h2>
+              <p className="text-gray-600 mb-6">
+                We're building a community based on trust and mutual respect. 
+                Help us maintain a safe marketplace for everyone.
+              </p>
+              <a href="/contact " className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-teal-600 hover:bg-teal-700">
+                Contact Support
+              </a>
+              <p className="mt-6 text-sm text-gray-500">
+                LYLU Team • lylumarketplace@gmail.com 
+              </p>
+            </div>
           </div>
         </div>
       </div>

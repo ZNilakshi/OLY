@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUser = async () => { 
       try {
         const response = await fetch("http://localhost:5000/api/auth/user", {
           credentials: "include",
