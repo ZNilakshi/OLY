@@ -31,6 +31,13 @@ mongoose
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://oly-steel.vercel.app",
+  "http://oly.railway.internal",
+  // Add other allowed origins as needed
+];
+
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use("/api", listingRoutes);
 
@@ -56,7 +63,7 @@ app.use(userRoutes);
 app.use(listingRoutes); 
 app.use("/api/send-email", sendMailRouter); 
 
-
+const PORT = process.env.PORT || 5000;
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
