@@ -39,7 +39,7 @@ const SignupPage = () => {
   }, [user, navigate, loading]); 
 
   const handleGoogleSignIn = () => {
-    window.location.href = "http://oly.railway.internalauth/google";
+    window.location.href = "http://oly.railway.internal/auth/google";
   };
 
   return (
