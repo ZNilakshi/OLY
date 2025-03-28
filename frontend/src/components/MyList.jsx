@@ -30,7 +30,7 @@ const MyList = ({ user }) => {
 
     const fetchListings = async () => {
       try {
-        const response = await fetch(`oly.railway.internal/api/listings/user/${user._id}`);
+        const response = await fetch(`http://oly.railway.internal/api/listings/user/${user._id}`);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const data = await response.json();
@@ -78,7 +78,7 @@ const MyList = ({ user }) => {
     newListing.photos.forEach((photo) => formData.append("photos", photo));
 
     try {
-      const response = await fetch(`oly.railway.internal/api/listings/${editingListing._id}`, {
+      const response = await fetch(`http://oly.railway.internal/api/listings/${editingListing._id}`, {
         method: "PUT",
         body: formData,
       });
@@ -97,7 +97,7 @@ const MyList = ({ user }) => {
   // Handle Delete Listing
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`oly.railway.internal/api/listings/${id}`, {
+      const response = await fetch(`http://oly.railway.internal//api/listings/${id}`, {
         method: "DELETE",
       });
 
