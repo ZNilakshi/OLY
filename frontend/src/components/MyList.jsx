@@ -145,7 +145,7 @@ const MyList = ({ user }) => {
     newListing.photos.forEach((photo) => formData.append("photos", photo));
 
     try {
-      const response = await fetch("oly.railway.internal/api/listings", {
+      const response = await fetch("http://oly.railway.internal/api/listings", {
         method: "POST",
         body: formData,
       });
