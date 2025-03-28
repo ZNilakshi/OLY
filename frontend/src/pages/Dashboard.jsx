@@ -13,7 +13,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userResponse = await fetch("http://oly.railway.internal/api/auth/user", {
+        const userResponse = await fetch("https://oly-production.up.railway.app/api/auth/user", {
           credentials: "include",
         });
         const userData = await userResponse.json();
@@ -25,7 +25,7 @@ const Dashboard = () => {
         
         setUser(userData.user);
 
-        const listingsResponse = await fetch("http://oly.railway.internal/api/listings");
+        const listingsResponse = await fetch("https://oly-production.up.railway.app/api/listings");
         if (!listingsResponse.ok) throw new Error("Failed to fetch listings");
         const listingsData = await listingsResponse.json();
         

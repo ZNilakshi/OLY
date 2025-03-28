@@ -12,7 +12,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchUser = async () => { 
       try {
-        const response = await fetch("http://oly.railway.internal/api/auth/user", {
+        const response = await fetch("https://oly-production.up.railway.app/api/auth/user", {
           credentials: "include",
         });
         const data = await response.json();
@@ -27,7 +27,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch("http://oly.railway.internal/api/auth/logout", {
+      await fetch("https://oly-production.up.railway.app/api/auth/logout", {
         method: "POST",
         credentials: "include",
       });

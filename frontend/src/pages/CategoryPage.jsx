@@ -10,7 +10,7 @@ const CategoryPage = () => {
   useEffect(() => {
     const fetchCategoryListings = async () => {
       try {
-        const response = await fetch(`http://oly.railway.internal/api/listings/category/${category}`);
+        const response = await fetch(`https://oly-production.up.railway.app/api/listings/category/${category}`);
         if (!response.ok) throw new Error("Failed to fetch listings");
         const data = await response.json();
         setListings(data);

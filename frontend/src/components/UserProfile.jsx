@@ -14,20 +14,20 @@ const UserProfile = () => {
     const fetchData = async () => {
       try {
         // Fetch current user
-        const currentUserRes = await fetch("http://oly.railway.internal/user");
+        const currentUserRes = await fetch("https://oly-production.up.railway.app/user");
         if (currentUserRes.ok) {
           const currentUserData = await currentUserRes.json();
           setCurrentUser(currentUserData);
         }
 
         // Fetch user details
-        const userResponse = await fetch(`http://oly.railway.internal/api/users/${userId}`);
+        const userResponse = await fetch(`https://oly-production.up.railway.app/api/users/${userId}`);
         if (!userResponse.ok) throw new Error("Failed to fetch user data");
         const userData = await userResponse.json();
         setUser(userData);
 
         // Fetch user listings
-        const listingsResponse = await fetch(`http://oly.railway.internal/api/listings/user/${userId}`);
+        const listingsResponse = await fetch(`https://oly-production.up.railway.app/api/listings/user/${userId}`);
         if (!listingsResponse.ok) throw new Error("Failed to fetch listings");
         const listingsData = await listingsResponse.json();
         setUserListings(listingsData);

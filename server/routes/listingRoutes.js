@@ -152,9 +152,9 @@ router.put("/api/listings/:id", upload.array("photos"), async (req, res) => {
         rentOrSell,
         priceType,
         price,
-        photos: photoUrls.length > 0 ? photoUrls : undefined, // Only update photos if new ones are uploaded
+        photos: photoUrls.length > 0 ? photoUrls : undefined, 
       },
-      { new: true } // Return the updated document
+      { new: true } 
     );
 
     if (!updatedListing) {

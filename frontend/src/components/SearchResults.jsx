@@ -10,7 +10,7 @@ const SearchResults = () => {
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
-        const response = await fetch(`http://oly.railway.internal/api/listings/search?q=${encodeURIComponent(query)}`);
+        const response = await fetch(`https://oly-production.up.railway.app/api/listings/search?q=${encodeURIComponent(query)}`);
         const data = await response.json();
         setResults(data);
       } catch (error) {
