@@ -12,7 +12,7 @@
   "description": "",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "cloudinary": "^2.6.0",
+    "cloudinary": "^1.41.3",
     "cookie-session": "^2.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
