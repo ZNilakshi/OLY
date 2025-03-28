@@ -32,7 +32,7 @@ const CategoryPage = () => {
     <div>
       <h1 className="text-center text-2xl font-bold my-4">{category.toUpperCase()}</h1>
       <div className="min-h-screen p-5 sm:p-6">
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
           {listings.map((listing) => (
             <ListingCard key={listing._id} listing={listing} />
           ))}

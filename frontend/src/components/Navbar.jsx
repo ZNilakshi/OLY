@@ -51,7 +51,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <h1 className="text-teal-600 text-3xl font-bold">OLY</h1>
+          <h1 className="text-teal-600 text-3xl font-bold">LYLU</h1>
           <div className="hidden md:block relative">
            
           </div>

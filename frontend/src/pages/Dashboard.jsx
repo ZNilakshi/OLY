@@ -68,52 +68,54 @@ const Dashboard = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-     
+   
       <div className="relative">
         <div 
           className="h-[500px] bg-cover bg-center w-full" 
           style={{
-            backgroundImage: "url('/dashboard.webp')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover"
           }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 flex items-center justify-center">
             <div className="text-center p-4 text-white max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                Welcome back, {user?.name || user?.username || 'User'}!
+                Welcome back, {user?.name || user?.username || 'Fashionista'}!
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl mb-6">
-                Discover your perfect space
+                Discover your perfect style destination
               </p>
+            
             </div>
           </div>
         </div>
       </div>
 
-      {/* Listings section */}
+     
       <div className="container mx-auto px-4 sm:px-6 py-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-            Available Properties
+            Featured Boutiques & Showrooms
           </h2>
+         
         </div>
 
         {listings.length === 0 ? (
           <div className="text-center py-12">
             <h3 className="text-xl font-medium text-gray-600">
-              No properties available yet
+              No fashion spaces available yet
             </h3>
             <button
               onClick={() => navigate("/create-listing")}
-              className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              className="mt-4 px-6 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600"
             >
               Be the first to list
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {listings.map((listing) => (
               <ListingCard 
                 key={listing._id} 

@@ -11,9 +11,9 @@ const SecondNav = () => {
   }
 
   const handleClick = (category) => {
-    const normalizedCategory = category.toLowerCase(); // Normalize to lowercase
-    console.log("Category Clicked:", normalizedCategory); // Debugging
-    navigate(`/category/${normalizedCategory}`); // Navigate to the new page
+    const normalizedCategory = category.toLowerCase(); 
+    console.log("Category Clicked:", normalizedCategory); 
+    navigate(`/category/${normalizedCategory}`); 
   };
 
   return (

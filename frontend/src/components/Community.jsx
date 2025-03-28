@@ -59,7 +59,7 @@ const PoshmarkSection = () => {
           <span className="text-yellow-500 text-9xl font-bold">*</span>
         </div>
         <h2 className="text-3xl font-bold mb-4">
-          OLY connects you to people and closets
+          LYLU connects you to people and closets
         </h2>
         <p className="text-gray-900 text-xl">
         Discover a vibrant community where you can buy, sell, or rent stylish pre-loved items with ease! Connect with university friends to find unique fashion pieces, trendy accessories, and must-have beauty products. No middlemen, no shipping—just simple, social, and sustainable shopping 

@@ -106,7 +106,7 @@ const ListingDetails = () => {
                 src={photo}
                 alt={`Listing Preview ${index + 1}`}
                 className={`w-20 h-20 object-cover rounded-sm cursor-pointer ${
-                  index === currentPhotoIndex ? "border-2 border-blue-500" : ""
+                  index === currentPhotoIndex ? "border-2 border-teal-500" : ""
                 }`}
                 onClick={() => setCurrentPhotoIndex(index)}
               />
@@ -122,6 +122,9 @@ const ListingDetails = () => {
             </p>
             <p className="text-gray-700 mt-2">
               <span className="font-semibold text-gray-900">Condition:</span> {listing.condition}
+            </p>
+            <p className="text-gray-700 mt-2">
+              <span className="font-semibold text-gray-900">Location:</span> {user.location}
             </p>
           </div>
 
@@ -154,7 +157,7 @@ const ListingDetails = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">Listed By</h3>
                   <p className="text-gray-700 flex items-center">
-                    {listing.userId.name}<span className="mr-2">→</span>
+                    {listing.userId.name}
                   </p>
                   {listing.userId.phone && (
                     <p className="text-sm text-gray-500 mt-1">
@@ -164,7 +167,7 @@ const ListingDetails = () => {
                 </div>
               </div>
               <button
-                className="mt-4 w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors"
+                className="mt-4 w-full bg-teal-600 text-white py-2 px-4 rounded-lg hover:bg-teal-800 transition-colors"
                 onClick={handleChatWithSeller}
               >
                 {user ? "Chat on WhatsApp" : "Login to Chat"}
