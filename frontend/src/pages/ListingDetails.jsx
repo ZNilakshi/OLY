@@ -46,7 +46,7 @@ const ListingDetails = () => {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/listings/${id}`);
+        const response = await fetch(`http://oly.railway.internal/api/listings/${id}`);
         if (!response.ok) throw new Error("Failed to fetch listing");
         const data = await response.json();
         setListing(data);

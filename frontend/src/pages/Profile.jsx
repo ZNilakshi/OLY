@@ -17,7 +17,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/user", { 
+        const response = await fetch("http://oly.railway.internal/api/auth/user", { 
           credentials: "include" 
         });
         const data = await response.json();
@@ -74,7 +74,7 @@ const ProfilePage = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${user._id}`, {
+      const response = await fetch(`http://oly.railway.internal/api/users/${user._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(profileData),
