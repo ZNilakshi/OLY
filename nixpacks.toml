@@ -1,0 +1,7 @@
+[build]
+base = "./server"  # Tells Nixpacks to use server folder as root
+
+[phases.start]
+cmd = "node server.js"
+
+
