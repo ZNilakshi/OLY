@@ -53,10 +53,10 @@ const SecondNav = () => {
         </li>
         <li className="inline mx-2 my-1 sm:block sm:text-center">
           <button
-            onClick={() => handleClick('CLOTHS')}
+            onClick={() => handleClick('CLOTHES')}
             className="hover:bg-gray-200 px-4 py-2 rounded transition-colors"
           >
-            CLOTHS
+            CLOTHES
           </button>
         </li>
         <li className="inline mx-2 my-1 sm:block sm:text-center">

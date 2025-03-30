@@ -256,7 +256,7 @@ const MyList = ({ user }) => {
                     <option value="Purses">Purses</option>
                     <option value="Sarees">Sarees</option>
                     <option value="Clothes">Clothes</option>
-                    <option value="Accessorize">Accessorize</option>
+                    <option value="Accessories">Accessories</option>
                     <option value="Others">Others</option>
                   </select>
                 </div>

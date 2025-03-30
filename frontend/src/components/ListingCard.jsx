@@ -69,13 +69,13 @@ const ListingCard = ({ listing }) => {
         <h2 className="text-xl font-bold text-gray-800 hover:text-teal-600 transition-colors duration-200">
           {listing.title}
         </h2>
-        <p className="text-gray-600 mt-2">
+        <p className="text-gray-600 font-bold mt-2">
           {listing.rentOrSell === "Sell" ? "Price" : "Rent"}:{" "}
           {listing.priceType === "Free"
             ? "Free"
             : listing.priceType === "Negotiable"
-            ? `Rs.${listing.price} `
-            : `Rs${listing.price}`}
+            ? `Rs. ${listing.price}.00`
+            : `Rs. ${listing.price}.00`}
         </p>
       </div>
     </div>
