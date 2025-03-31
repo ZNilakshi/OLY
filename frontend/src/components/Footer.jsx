@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
          
           <div>
-            <h2 className="text-xl font-bold">Marketplace</h2>
+            <h2 className="text-xl font-bold"> LYLU Marketplace</h2>
             <p className="text-gray-400 mt-2">
               Buy & sell pre-loved fashion easily with personal meetups.
             </p>
@@ -40,7 +40,7 @@ const Footer = () => {
 
        
         <div className="border-t border-gray-700 mt-6 pt-4 text-center text-gray-400 text-sm">
-          © {new Date().getFullYear()} Marketplace. All rights reserved.
+          © {new Date().getFullYear()} LYLU Marketplace. All rights reserved.
         </div>
       </div>
     </footer>

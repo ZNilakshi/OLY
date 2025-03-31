@@ -55,7 +55,7 @@ const Navbar = () => {
           <div className="hidden md:block relative">
            
           </div>
-          <div className="relative w-full md:w-96">
+          <div className="relative w-full mr-5 md:w-96">
           <form onSubmit={handleSearch} className="relative w-full md:w-96">
             <input
               type="text"
@@ -67,6 +67,7 @@ const Navbar = () => {
             <button type="submit" className="absolute right-3 top-3 text-gray-500">
               <FaSearch />
             </button>
+            
           </form>
             </div>
         </div>
@@ -78,7 +79,7 @@ const Navbar = () => {
                 <img
                   src={user.profilePicture || "/default-avatar.png"}
                   alt="Profile"
-                  className="rounded-full w-8 h-8 cursor-pointer"
+                  className="rounded-full w-9 h-9 cursor-pointer"
                 />
               </Link>
               <button

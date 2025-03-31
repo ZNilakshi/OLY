@@ -55,7 +55,7 @@ const SignupPage = () => {
           <h1 className="text-7xl font-bold mb-4">
           Buy, Sell, Rent & Refresh Your Style       </h1>
           <p className="mb-6 mt-10 text-xl">
-          The ultimate social marketplace for fashion, home decor, beauty, and more.
+          The ultimate social marketplace for fashion, beauty, and more.
           Discover treasures, list your items, or rent what you love—all in one place!   </p>
 
           {!loading && !user && (

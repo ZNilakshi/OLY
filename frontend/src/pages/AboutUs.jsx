@@ -180,13 +180,13 @@ const AboutUs = () => {
     { 
       name: "Nilakshi Samarasekara", 
       role: "Founder", 
-      img: "https://randomuser.me/api/portraits/women/44.jpg",
+      img: "/nilakshi.jpeg",
       bio: "Software Engineering undergraduate from SUSL "
     },
     { 
       name: "Malshika Insari", 
       role: "Founder", 
-      img: "https://randomuser.me/api/portraits/women/63.jpg",
+      img: "malshikaa.jpeg",
       bio: "Software Engineering undergraduate from SUSL"
     }
   ].map((member, index) => (

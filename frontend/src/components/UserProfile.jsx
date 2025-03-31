@@ -65,6 +65,8 @@ const UserProfile = () => {
           <p className="text-gray-600">{user.email}</p>
           <p className="text-gray-600">{user.phone || "No phone available"}</p>
           <p className="text-gray-600">{user.location || "No location provided"}</p>
+          <p className="text-gray-600">{user.about|| "No about provided"}</p>
+      
         </div>
       </div>
 

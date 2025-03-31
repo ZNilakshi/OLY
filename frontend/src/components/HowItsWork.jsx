@@ -17,7 +17,7 @@ const HowItWorks = () => {
   const buyerContent = [
     { img: "/find.jpg", title: "FIND YOUR STYLE", text: "Discover a wide selection of items across thousands of brands, styles, sizes, and trends—at prices up to 70% off." },
     { img: "/follow.jpg", title: "FOLLOW + LIKE", text: "Be the first to see what’s new by following your favorite closets and brands. Like listings to save them and get notified of special offers and discounts." },
-    { img: "/score.webp", title: "SCORE DEALS", text: "There are so many new deals to uncover every day. Make an offer and name your price, or join the fun and place a bid on a live show auction—starting as low as $3!" },
+    { img: "/score.webp", title: "SCORE DEALS", text: "There are so many new deals to uncover every day. Make an offer and name your price, or join the fun and place a bid on a live show auction—starting as low as Rs.100" },
   ];
   const content = activeTab === "seller" ? sellerContent : buyerContent;
 

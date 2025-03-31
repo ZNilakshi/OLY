@@ -89,13 +89,13 @@ const ListingDetails = () => {
   return (
     <div className="p-6 max-w-6xl mt-2 mx-auto bg-white rounded-xl shadow-lg">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Left Column - Photos and Details */}
+      
         <div className="space-y-4">
           <div className="relative">
             <img
               src={listing.photos[currentPhotoIndex]}
               alt="Listing Preview"
-              className="w-full h-96 object-cover rounded-sm shadow-md"
+              className="w-full h-97 object-cover rounded-sm shadow-md"
             />
           </div>
           
@@ -140,7 +140,7 @@ const ListingDetails = () => {
           <div className="bg-gray-50 p-6 rounded-sm shadow-sm">
             <h1 className="text-4xl font-bold mb-4 text-gray-900">{listing.title}</h1>
             <p className="text-2xl font-semibold text-gray-900">
-              {listing.price === 0 || listing.price === null ? "Free" : `$${listing.price}`}
+              {listing.price === 0 || listing.price === null ? "Free" : `Rs.${listing.price}.00`}
             </p>
           </div>
 
@@ -151,7 +151,7 @@ const ListingDetails = () => {
                   <img
                     src={listing.userId.profilePicture || "https://via.placeholder.com/150"}
                     alt="User Profile"
-                    className="w-16 h-16 rounded-full cursor-pointer hover:opacity-75 transition-opacity"
+                    className="w-16 h-17 rounded-full cursor-pointer hover:opacity-75 transition-opacity"
                   />
                 </Link>
                 <div>
