@@ -15,7 +15,7 @@ const SignupPage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/user", {
+        const response = await fetch("http://oly-production-ce41.up.railway.app/api/auth/user", {
           credentials: "include",
         });
         const data = await response.json();
@@ -39,7 +39,7 @@ const SignupPage = () => {
   }, [user, navigate, loading]); 
 
   const handleGoogleSignIn = () => {
-    window.location.href = "http://localhost:5000/auth/google";
+    window.location.href = "http://oly-production-ce41.up.railway.app/auth/google";
   };
 
   return (

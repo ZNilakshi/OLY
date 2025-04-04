@@ -30,7 +30,7 @@ const MyList = ({ user }) => {
 
     const fetchListings = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/listings/user/${user._id}`);
+        const response = await fetch(`http://oly-production-ce41.up.railway.app/api/listings/user/${user._id}`);
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const data = await response.json();
@@ -78,7 +78,7 @@ const MyList = ({ user }) => {
     newListing.photos.forEach((photo) => formData.append("photos", photo));
 
     try {
-      const response = await fetch(`http://localhost:5000/api/listings/${editingListing._id}`, {
+      const response = await fetch(`http://oly-production-ce41.up.railway.app/api/listings/${editingListing._id}`, {
         method: "PUT",
         body: formData,
       });
@@ -97,7 +97,7 @@ const MyList = ({ user }) => {
   // Handle Delete Listing
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/listings/${id}`, {
+      const response = await fetch(`http://oly-production-ce41.up.railway.app/api/listings/${id}`, {
         method: "DELETE",
       });
 
@@ -145,7 +145,7 @@ const MyList = ({ user }) => {
     newListing.photos.forEach((photo) => formData.append("photos", photo));
 
     try {
-      const response = await fetch("http://localhost:5000/api/listings", {
+      const response = await fetch("http://oly-production-ce41.up.railway.app/api/listings", {
         method: "POST",
         body: formData,
       });
