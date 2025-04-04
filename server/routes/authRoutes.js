@@ -11,7 +11,7 @@ router.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/login", session: true }),
   (req, res) => {
-    res.redirect("http://oly-steel.vercel.app/dashboard"); // Redirect to frontend dashboard
+    res.redirect("http://oly-steel.vercel.app/dashboard"); 
   }
 );
 
