@@ -39,9 +39,9 @@ const SignupPage = () => {
   }, [user, navigate, loading]); 
 
   const handleGoogleSignIn = () => {
-    window.location.href = "http://oly-production-ce41.up.railway.app/auth/google";
+    const productionUrl = "http://oly-steel.vercel.app/dashboard";
+    window.location.href = `http://oly-production-ce41.up.railway.app/auth/google?redirect=${encodeURIComponent(productionUrl)}`;
   };
-
   return (
     <div>
       <div
