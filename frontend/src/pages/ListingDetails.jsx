@@ -13,7 +13,7 @@ const ListingDetails = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/user", {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/user`, {
           credentials: "include",
         });
         const data = await response.json();
@@ -46,7 +46,7 @@ const ListingDetails = () => {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/listings/${id}`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/listings/${id}`);        
         if (!response.ok) throw new Error("Failed to fetch listing");
         const data = await response.json();
         setListing(data);

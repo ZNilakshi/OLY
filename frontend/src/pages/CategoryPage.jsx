@@ -10,7 +10,9 @@ const CategoryPage = () => {
   useEffect(() => {
     const fetchCategoryListings = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/listings/category/${category}`);
+        const response = await fetch(
+          `${process.env.REACT_APP_API_BASE_URL}/api/listings/category/${category}`
+        );
         if (!response.ok) throw new Error("Failed to fetch listings");
         const data = await response.json();
         setListings(data);

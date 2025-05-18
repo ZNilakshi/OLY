@@ -1,4 +1,3 @@
-import { FaGoogle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -15,8 +14,8 @@ const SignupPage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/user", {
-          credentials: "include",
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/user`, {
+        credentials: "include",
         });
         const data = await response.json();
         if (data.user) {
@@ -39,7 +38,7 @@ const SignupPage = () => {
   }, [user, navigate, loading]); 
 
   const handleGoogleSignIn = () => {
-    window.location.href = "http://localhost:5000/auth/google";
+    window.location.href = `${process.env.REACT_APP_API_BASE_URL}${process.env.REACT_APP_GOOGLE_AUTH_URL}`;
   };
 
   return (

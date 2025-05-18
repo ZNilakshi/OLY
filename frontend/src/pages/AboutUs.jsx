@@ -18,9 +18,9 @@ const AboutUs = () => {
                 At StyleCycle, we're on a mission to make buying, selling, or renting pre-loved items your first choice. Join our community of fashion-forward, eco-conscious individuals.
               </p>
               <a 
-                href="http://localhost:3000/" 
-                className="inline-block text-xl bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
-              >
+  href={`${process.env.REACT_APP_BASE_URL}/`} 
+  className="inline-block text-xl bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+>
                 Join the Movement
               </a>
             </div>

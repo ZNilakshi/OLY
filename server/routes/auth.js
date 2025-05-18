@@ -11,8 +11,8 @@ router.get("/google", passport.authenticate("google", { scope: ["profile", "emai
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000/login",
-    successRedirect: "http://localhost:3000",
+    failureRedirect: `${process.env.CLIENT_BASE_URL}/login`,
+    successRedirect: process.env.CLIENT_BASE_URL,
   })
 );
 
@@ -38,7 +38,7 @@ router.get("/user", async (req, res) => {
 router.get("/logout", (req, res) => {
   req.logout(() => {
     req.session = null;
-    res.redirect("http://localhost:3000");
+    res.redirect(process.env.CLIENT_BASE_URL);
   });
 });
 

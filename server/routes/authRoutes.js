@@ -11,7 +11,7 @@ router.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/login", session: true }),
   (req, res) => {
-    res.redirect("http://localhost:3000/dashboard"); // Redirect to frontend dashboard
+    res.redirect(`${process.env.CLIENT_BASE_URL}/dashboard`);
   }
 );
 

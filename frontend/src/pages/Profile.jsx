@@ -17,8 +17,9 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/user", { 
-          credentials: "include" 
+        
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/user`, {
+        credentials: "include" 
         });
         const data = await response.json();
         console.log("Fetched user data:", data.user);
@@ -74,8 +75,8 @@ const ProfilePage = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${user._id}`, {
-        method: "PUT",
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/users/${user._id}`, {
+         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(profileData),
         credentials: "include",

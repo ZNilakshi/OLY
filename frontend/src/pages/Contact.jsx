@@ -26,7 +26,7 @@ const ContactPage = () => {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("http://localhost:5000/api/send-email", {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/send-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

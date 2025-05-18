@@ -30,8 +30,7 @@ const MyList = ({ user }) => {
 
     const fetchListings = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/listings/user/${user._id}`);
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/listings/user/${user._id}`);        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const data = await response.json();
         setListings(data);
@@ -78,8 +77,7 @@ const MyList = ({ user }) => {
     newListing.photos.forEach((photo) => formData.append("photos", photo));
 
     try {
-      const response = await fetch(`http://localhost:5000/api/listings/${editingListing._id}`, {
-        method: "PUT",
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/listings/${editingListing._id}`, {        method: "PUT",
         body: formData,
       });
 
@@ -97,8 +95,7 @@ const MyList = ({ user }) => {
   // Handle Delete Listing
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/listings/${id}`, {
-        method: "DELETE",
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/listings/${id}`, {        method: "DELETE",
       });
 
       if (!response.ok) throw new Error("Failed to delete listing");
@@ -145,8 +142,7 @@ const MyList = ({ user }) => {
     newListing.photos.forEach((photo) => formData.append("photos", photo));
 
     try {
-      const response = await fetch("http://localhost:5000/api/listings", {
-        method: "POST",
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/listings`, {        method: "POST",
         body: formData,
       });
 
