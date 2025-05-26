@@ -76,7 +76,7 @@ const ListingDetails = () => {
           <div className="bg-gray-50 p-6 rounded-sm shadow-sm">
             <h1 className="text-4xl font-bold mb-4 text-gray-900">{listing.title}</h1>
             <p className="text-2xl font-semibold text-gray-900">
-              {listing.price === 0 || listing.price === null ? "Free" : `$${listing.price}`}
+              {listing.price === 0 || listing.price === null ? "Free" : `Rs.${listing.price}`}
             </p>
           </div>
 

@@ -9,7 +9,7 @@ const ProfilePage = () => {
     about: "",
     phone: "",
     location: "",
-    profilePicture: "/default-avatar.png",
+    profilePicture: "/default.png",
   });
   const [activeTab, setActiveTab] = useState("My Listings");
   const [imagePreview, setImagePreview] = useState(null);
@@ -64,7 +64,7 @@ const ProfilePage = () => {
     setImagePreview(null);
     setProfileData({
       ...profileData,
-      profilePicture: "/default-avatar.png"
+      profilePicture: "/default.png"
     });
   };
 
@@ -94,7 +94,7 @@ const ProfilePage = () => {
 
   return (
     <div className="container mx-auto flex flex-col items-center min-h-screen bg-gray-100 p-4">
-      {/* Profile Section */}
+      
       <div className="w-full  bg-white shadow-lg rounded-2xl border border-gray-300">
         <div className="flex flex-col items-center text-center p-6">
           <img
@@ -115,7 +115,7 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      {/* Content Section */}
+     
       <div className="w-full bg-white shadow-lg rounded-2xl border border-gray-300 mt-6 mb-8">
         <div className="flex justify-between border-b border-gray-300 p-4">
           {["My Listings"].map((tab) => (
@@ -139,7 +139,7 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      {/* Edit Profile Modal */}
+     
       {isEditing && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-lg max-w-md w-full border border-gray-300 overflow-hidden">
@@ -147,7 +147,7 @@ const ProfilePage = () => {
               <h2 className="text-xl font-semibold mb-6 text-teal-600">Edit Profile</h2>
               
               <form onSubmit={handleSave} className="grid grid-cols-1 gap-4">
-                {/* Profile Picture with Preview */}
+                
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600 text-sm font-medium">
                     Profile Picture
@@ -159,7 +159,7 @@ const ProfilePage = () => {
                     className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100"
                   />
                   
-                  {/* Image Preview */}
+                  
                   {(imagePreview || profileData.profilePicture) && (
                     <div className="mt-4 flex justify-center">
                       <div className="relative">
@@ -180,7 +180,7 @@ const ProfilePage = () => {
                   )}
                 </div>
 
-                {/* Name */}
+                
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600 text-sm font-medium">
                     Name
@@ -195,7 +195,7 @@ const ProfilePage = () => {
                   />
                 </div>
 
-                {/* Phone Number */}
+                
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600 text-sm font-medium">
                     Phone Number
@@ -209,7 +209,7 @@ const ProfilePage = () => {
                   />
                 </div>
 
-                {/* Location */}
+               
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600 text-sm font-medium">
                     Location
@@ -226,7 +226,6 @@ const ProfilePage = () => {
                   </select>
                 </div>
 
-                {/* About Me */}
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600 text-sm font-medium">
                     About Me
@@ -240,7 +239,7 @@ const ProfilePage = () => {
                   />
                 </div>
 
-                {/* Buttons */}
+                
                 <div className="flex gap-4 pt-4">
                   <button 
                     type="submit" 

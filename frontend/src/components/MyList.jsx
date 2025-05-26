@@ -30,7 +30,8 @@ const MyList = ({ user }) => {
 
     const fetchListings = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/listings/user/${user._id}`);        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/listings/user/${user._id}`);        
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const data = await response.json();
         setListings(data);
@@ -40,7 +41,6 @@ const MyList = ({ user }) => {
         setLoading(false);
       }
     };
-
     fetchListings();
   }, [user?._id]);
 
@@ -91,7 +91,7 @@ const MyList = ({ user }) => {
       console.error("Error updating listing:", error);
     }
   };
-
+  
   // Handle Delete Listing
   const handleDelete = async (id) => {
     try {
@@ -118,6 +118,7 @@ const MyList = ({ user }) => {
     setNewListing({ ...newListing, photos: [...newListing.photos, ...files] });
   };
 
+
   // Handle Remove Photo
   const handleRemovePhoto = (index) => {
     const updatedPhotos = [...newListing.photos];
@@ -125,7 +126,7 @@ const MyList = ({ user }) => {
     setNewListing({ ...newListing, photos: updatedPhotos });
   };
 
-  // Handle Submit (Add Listing)
+  // Handle Submit 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -166,20 +167,19 @@ const MyList = ({ user }) => {
       console.error("Error submitting listing:", error);
     }
   };
-
-  // Loading State
+  
   if (loading) {
     return <div className="flex justify-center items-center h-screen text-lg">Loading...</div>;
   }
 
-  // No User State
+  
   if (!user) {
     return <div className="text-center text-lg">Please log in to view your listings.</div>;
   }
 
   return (
     <div className="p-4 md:p-8 max-w-7xl mx-auto">
-      {/* Add New Listing Button */}
+      
       <button
         onClick={() => setIsAdding(true)}
         className="w-full md:w-auto bg-teal-600 hover:bg-teal-800 text-white p-3 rounded-lg mb-6 font-medium transition-colors shadow-md"
@@ -187,7 +187,7 @@ const MyList = ({ user }) => {
         Add New Listing
       </button>
 
-      {/* Listings Grid */}
+      
       <div className="mt-6 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {listings.map((listing) => (
           <div key={listing._id} className="relative group">
@@ -211,11 +211,11 @@ const MyList = ({ user }) => {
           </div>
         ))}
       </div>
-
-      {/* Add/Edit Listing Modal */}
+     
       {(isAdding || isEditing) && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold text-gray-800">
@@ -234,9 +234,9 @@ const MyList = ({ user }) => {
                   </svg>
                 </button>
               </div>
-
+                  
               <form onSubmit={isEditing ? handleUpdate : handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Category */}
+               
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600 text-sm font-medium">Category</label>
                   <select
@@ -256,8 +256,7 @@ const MyList = ({ user }) => {
                     <option value="Others">Others</option>
                   </select>
                 </div>
-
-                {/* Title */}
+                
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600  text-sm font-medium">Title</label>
                   <input
@@ -270,8 +269,7 @@ const MyList = ({ user }) => {
                     required
                   />
                 </div>
-
-                {/* Description (full width) */}
+             
                 <div className="relative md:col-span-2">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600  text-sm font-medium">Description</label>
                   <textarea
@@ -284,8 +282,7 @@ const MyList = ({ user }) => {
                     required
                   />
                 </div>
-
-                {/* Size */}
+               
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600 text-sm font-medium">Size</label>
                   <input
@@ -298,8 +295,7 @@ const MyList = ({ user }) => {
                     required
                   />
                 </div>
-
-                {/* Condition */}
+                
                 <div className="relative ">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600  text-sm font-medium">Condition</label>
                   <select
@@ -315,7 +311,7 @@ const MyList = ({ user }) => {
                   </select>
                 </div>
 
-                {/* Rent or Sell */}
+                
                 <div className="relative">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600  text-sm font-medium">Listing Type</label>
                   <select
@@ -330,7 +326,7 @@ const MyList = ({ user }) => {
                   </select>
                 </div>
 
-                {/* Price Type and Price */}
+                
                 <div className="relative md:col-span-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="relative">
@@ -365,7 +361,7 @@ const MyList = ({ user }) => {
                   </div>
                 </div>
 
-                {/* Photos Upload */}
+                
                 <div className="relative md:col-span-2">
                   <label className="absolute -top-2 left-3 bg-white px-1 text-teal-600  text-sm font-medium">Product Images</label>
                   <input
@@ -377,7 +373,7 @@ const MyList = ({ user }) => {
                   />
                 </div>
 
-                {/* Photo Previews */}
+                
                 {newListing.photos.length > 0 && (
                   <div className="flex flex-wrap gap-4 md:col-span-2">
                     {newListing.photos.map((photo, index) => {
@@ -404,7 +400,7 @@ const MyList = ({ user }) => {
                   </div>
                 )}
 
-                {/* Buttons */}
+                
                 <div className="flex gap-4 md:col-span-2 pt-4">
                   <button 
                     type="submit" 

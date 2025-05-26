@@ -1,12 +1,11 @@
 import React from 'react';
 import { FaRecycle, FaLeaf, FaUsers, FaHandsHelping, FaHeart } from 'react-icons/fa';
 import { GiClothes } from 'react-icons/gi';
-import { BsShop } from 'react-icons/bs';
 
 const AboutUs = () => {
   return (
     <div className="bg-white">
-      {/* Hero Section */}
+      
       <div className="relative bg-gradient-to-r from-green-50 to-teal-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center">
@@ -52,7 +51,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Our Story Section */}
+     
       <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -84,7 +83,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Mission Section */}
+    
       <div className="py-16 px-4 sm:px-6 lg:px-8 bg-green-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -128,7 +127,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Impact Section */}
+   
       <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -191,7 +190,7 @@ const AboutUs = () => {
     }
   ].map((member, index) => (
     <div key={index} className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col md:flex-row">
-      {/* Image Section */}
+    
       <div className="md:w-1/3">
         <img 
           src={member.img} 
@@ -200,7 +199,7 @@ const AboutUs = () => {
         />
       </div>
       
-      {/* Content Section */}
+      
       <div className="md:w-2/3 p-6 flex flex-col justify-between">
         <div>
           <div className="mb-4">
@@ -227,7 +226,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* CTA Section */}
+     
       <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-teal-600 to-green-600 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-extrabold sm:text-4xl mb-6">

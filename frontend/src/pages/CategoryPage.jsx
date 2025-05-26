@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ListingCard from "./../components/ListingCard";
 
 const CategoryPage = () => {
-  const { category } = useParams(); // Get the category from the URL
+  const { category } = useParams(); 
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +24,7 @@ const CategoryPage = () => {
     };
 
     fetchCategoryListings();
-  }, [category]); // Re-fetch when the category changes
+  }, [category]); 
 
   if (loading) {
     return <div className="flex justify-center items-center h-screen">Loading...</div>;

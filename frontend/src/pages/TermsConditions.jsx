@@ -5,7 +5,7 @@ const TermsConditions = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        {/* Header Card */}
+        
         <div className="bg-white rounded-xl shadow-md overflow-hidden mb-8 border border-gray-200">
           <div className="bg-gradient-to-r from-teal-600 to-green-600 p-8 text-center">
             <h1 className="text-3xl font-bold text-white mb-2  tracking-tight">Terms and Conditions</h1>
@@ -15,9 +15,9 @@ const TermsConditions = () => {
           </div>
         </div>
 
-        {/* Main Content */}
+       
         <div className="space-y-8">
-          {/* Intro Card */}
+          
           <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <div className="prose prose-indigo max-w-none">
               <p className="text-lg text-gray-600">
@@ -37,7 +37,7 @@ const TermsConditions = () => {
             </div>
           </div>
 
-          {/* Who Can Use */}
+          
           <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <FaUserLock className="mr-3 text-indigo-500" />
@@ -71,7 +71,7 @@ const TermsConditions = () => {
             </div>
           </div>
 
-          {/* User Responsibilities */}
+          
           <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <FaHandshake className="mr-3 text-indigo-500" />
@@ -79,7 +79,7 @@ const TermsConditions = () => {
             </h2>
             
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Sellers */}
+              
               <div className="bg-indigo-50/50 p-5 rounded-lg border border-indigo-100">
                 <h3 className="font-semibold text-indigo-800 mb-3">Sellers Must:</h3>
                 <ul className="space-y-3">
@@ -102,7 +102,7 @@ const TermsConditions = () => {
                 </ul>
               </div>
 
-              {/* Buyers */}
+             
               <div className="bg-blue-50/50 p-5 rounded-lg border border-blue-100">
                 <h3 className="font-semibold text-blue-800 mb-3">Buyers Must:</h3>
                 <ul className="space-y-3">
@@ -126,7 +126,7 @@ const TermsConditions = () => {
               </div>
             </div>
 
-            {/* Safety Notice */}
+            
             <div className="mt-6 bg-gradient-to-r from-amber-50 to-orange-50 p-5 rounded-lg border border-amber-100">
               <h4 className="font-medium text-amber-800 mb-2 flex items-center">
                 <FaShieldAlt className="mr-2 text-amber-600" />
@@ -140,7 +140,7 @@ const TermsConditions = () => {
             </div>
           </div>
 
-          {/* Prohibited Items */}
+          
           <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">3. Prohibited Items</h2>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -181,7 +181,7 @@ const TermsConditions = () => {
             </div>
           </div>
 
-          {/* Dispute Resolution */}
+          
           <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">4. Disputes & Liability</h2>
             <div className="prose prose-indigo max-w-none">
@@ -201,7 +201,7 @@ const TermsConditions = () => {
             </div>
           </div>
 
-          {/* Final Section */}
+          
           <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 text-center">
             <div className="max-w-2xl mx-auto">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">By using LYLU, you agree to these Terms</h2>

@@ -10,7 +10,7 @@ const listings = [
     priceType: "Negotiable",
     price: 1200,
     description: "A beautiful apartment in a quiet neighborhood.",
-    photos: [new File([], "photo1.jpg")], // Replace with actual images
+    photos: [new File([], "photo1.jpg")], 
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const listings = [
     condition: "Good",
     priceType: "Free",
     description: "Great place for students and working professionals.",
-    photos: [new File([], "photo2.jpg")], // Replace with actual images
+    photos: [new File([], "photo2.jpg")], 
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const listings = [
     priceType: "Fixed",
     price: 5000,
     description: "A high-end villa with ocean views.",
-    photos: [new File([], "photo3.jpg")], // Replace with actual images
+    photos: [new File([], "photo3.jpg")], 
   },
 ];
 
@@ -69,7 +69,7 @@ export default function ListingDetails() {
           ? "Free"
           : listing.priceType === "Negotiable"
           ? "Negotiable"
-          : `$${listing.price}`}
+          : `Rs.${listing.price}`}
       </p>
       <button
         onClick={() => router.push("/listings")}

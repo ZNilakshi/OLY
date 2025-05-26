@@ -48,7 +48,7 @@ const ContactPage = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* Hero Section */}
+     
       <div className="bg-gradient-to-r from-teal-600 to-green-600 py-16 text-white text-center">
         <h1 className="text-4xl font-bold mb-4">Get In Touch</h1>
         <p className="text-xl max-w-2xl mx-auto">
@@ -56,10 +56,9 @@ const ContactPage = () => {
         </p>
       </div>
 
-      {/* Main Contact Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Left Side: Contact Form */}
+         
           <div className="bg-white p-8 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
             <form className="space-y-6" onSubmit={handleSubmit}>
@@ -122,8 +121,7 @@ const ContactPage = () => {
             </form>
           </div>
 
-          {/* Right Side: Contact Info & Social */}
-          <div className="space-y-8">
+            <div className="space-y-8">
             {/* Business Info */}
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Contact Information</h2>
@@ -146,7 +144,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Social Media */}
+        
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Follow Us</h2>
               <div className="flex space-x-4">
@@ -167,7 +165,7 @@ const ContactPage = () => {
           </div>
         </div>
 
-        {/* FAQ Section */}
+      
         <div className="mt-12 bg-white p-8 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
           <div className="space-y-4">
