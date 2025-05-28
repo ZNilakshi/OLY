@@ -1,4 +1,3 @@
-// components/StarRating.js
 import React from "react";
 
 const StarRating = ({ rating, setRating, readonly = false }) => {
@@ -13,7 +12,7 @@ const StarRating = ({ rating, setRating, readonly = false }) => {
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth={star <= rating ? 0 : 1}
-          color="#FBBF24" // Amber-400 color
+          color="#FBBF24" 
           onClick={() => !readonly && setRating(star)}
         >
           <path

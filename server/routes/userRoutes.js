@@ -46,7 +46,7 @@ router.get("/api/users/:id", async (req, res) => {
 
 router.get("/api/users", async (req, res) => {
   try {
-    const users = await User.find({}, "name profilePicture"); // Fetch only name and profilePicture
+    const users = await User.find({}, "name profilePicture"); 
     res.status(200).json(users);
   } catch (error) {
     console.error("Error fetching users:", error);

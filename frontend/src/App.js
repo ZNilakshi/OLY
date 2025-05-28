@@ -9,7 +9,7 @@ import Profile from "./pages/Profile";
 import ListingDetails from "./pages/ListingDetails";
 import LDetails from "./pages/LDetails";
 import UserProfile from "./components/UserProfile";
-import SearchResults from "./components/SearchResults"; // Fixed import
+import SearchResults from "./components/SearchResults"; 
 import CategoryListings from "./pages/CategoryPage";
 import SecondNav from "./components/SecondNav"; 
 import AboutUs from "./pages/AboutUs";
