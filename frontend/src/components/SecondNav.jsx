@@ -5,7 +5,7 @@ const SecondNav = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Hide SecondNav on the home page (/)
+  // Hide SecondNav on the home page
   if (location.pathname === '/') {
     return null;
   }
