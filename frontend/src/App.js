@@ -16,7 +16,7 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import HowItWorks from "./pages/HowItWorks";
 import TermsConditions from "./pages/TermsConditions";
-
+import RegisterStudent from "./pages/form"; // Importing the RegisterStudent component
 function App() {
   return (
     <Router>
@@ -37,7 +37,7 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/HowItWorks" element={<HowItWorks />} />
         <Route path="/TermsConditions" element={<TermsConditions />} />
-
+        <Route path="/register-student" element={<RegisterStudent />} /> {/* Route for RegisterStudent */}
        
       </Routes>
       <Footer />

@@ -2,32 +2,33 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ListingCard from "./ListingCard";
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
 const UserProfile = () => {
   const { userId } = useParams();
   const [user, setUser] = useState(null);
   const [userListings, setUserListings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [, setCurrentUser] = useState(null);
 
-  // Fetch user data and listings
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch current user
-        const currentUserRes = await fetch("http://localhost:5000/user");
+        const currentUserRes = await fetch(`${API_BASE}/user`);
         if (currentUserRes.ok) {
           const currentUserData = await currentUserRes.json();
           setCurrentUser(currentUserData);
         }
 
         // Fetch user details
-        const userResponse = await fetch(`http://localhost:5000/api/users/${userId}`);
+        const userResponse = await fetch(`${API_BASE}/api/users/${userId}`);
         if (!userResponse.ok) throw new Error("Failed to fetch user data");
         const userData = await userResponse.json();
         setUser(userData);
 
         // Fetch user listings
-        const listingsResponse = await fetch(`http://localhost:5000/api/listings/user/${userId}`);
+        const listingsResponse = await fetch(`${API_BASE}/api/listings/user/${userId}`);
         if (!listingsResponse.ok) throw new Error("Failed to fetch listings");
         const listingsData = await listingsResponse.json();
         setUserListings(listingsData);
@@ -42,13 +43,8 @@ const UserProfile = () => {
     fetchData();
   }, [userId]);
 
-  if (loading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;
-  }
-
-  if (!user) {
-    return <div className="text-center text-red-500">User not found</div>;
-  }
+  if (loading) return <div className="flex justify-center items-center h-screen">Loading...</div>;
+  if (!user) return <div className="text-center text-red-500">User not found</div>;
 
   return (
     <div className="p-6 max-w-4xl mx-auto">

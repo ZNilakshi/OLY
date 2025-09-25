@@ -21,5 +21,5 @@
 ## 🚀 Quick Start
 1. **Clone repo**
    ```bash
-   git clone https://github.com/yourusername/lylu.git
+   git clone https://github.com/znilakshi/lylu.git
    cd lylu

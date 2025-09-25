@@ -148,18 +148,39 @@ const ContactPage = () => {
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Follow Us</h2>
               <div className="flex space-x-4">
-                <a href="#" className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
-                  <FaFacebook className="text-xl" />
-                </a>
-                <a href="#" className="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition">
-                  <FaInstagram className="text-xl" />
-                </a>
-                <a href="#" className="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition">
-                  <FaTwitter className="text-xl" />
-                </a>
-                <a href="#" className="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-800 transition">
-                  <FaLinkedin className="text-xl" />
-                </a>
+              <a
+  href="https://facebook.com/yourpage"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition"
+>
+  <FaFacebook className="text-xl" />
+</a>
+<a
+  href="https://instagram.com/yourpage"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition"
+>
+  <FaInstagram className="text-xl" />
+</a>
+<a
+  href="https://twitter.com/yourpage"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition"
+>
+  <FaTwitter className="text-xl" />
+</a>
+<a
+  href="https://linkedin.com/in/yourpage"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-700 text-white p-3 rounded-full hover:bg-blue-800 transition"
+>
+  <FaLinkedin className="text-xl" />
+</a>
+
               </div>
             </div>
           </div>
