@@ -25,7 +25,7 @@ cloudinary.config({
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+  .catch((err) => console.error("MongoDB error:", err));
 
 const app = express();
 
@@ -47,13 +47,15 @@ app.use(
     secret: process.env.SESSION_SECRET || "Nilakshie",
     resave: false,
     saveUninitialized: false,
+    proxy: true, // <--- IMPORTANT for Railway/Heroku behind proxy
     cookie: {
-      secure: process.env.NODE_ENV === "production", 
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      secure: process.env.NODE_ENV === "production", // must be true on https
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax", 
       httpOnly: true,
     },
   })
 );
+
 
 // -------------------- Passport --------------------
 app.use(passport.initialize());
